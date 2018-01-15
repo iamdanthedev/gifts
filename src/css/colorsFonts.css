@@ -1,0 +1,122 @@
+button, input, textarea, a, select{
+  outline: none !important;
+}
+button:hover{
+}
+
+ul{
+  margin: 0px;
+  padding: 0px;
+}
+a:hover{
+  text-decoration: none !important;
+}
+
+
+ /* =========== colors ========= */
+
+.logo-blue{
+  color: #26b6d1;
+}
+.logo-blue-b{
+  background-color: #26b6d1;
+  color: white;
+}
+.black{
+  color: black;
+}
+.white{
+  color: white;
+}
+.light-gray{
+ color: #c2c2c2;
+}
+.header-gray{
+  background-color: #515151;
+}
+.dark-gray-t{
+  color: #515151 !important;
+}
+.dark-gray{
+
+}
+
+.green{
+ background-color: #55AC53;
+ color: white;
+}
+
+.flat-gr-txt{
+  color: #76ce96;
+}
+.flat-gr{
+  background-color: #76ce96;
+}
+.red{
+
+}
+
+.yellow{
+
+}
+
+.white-box{
+  padding: 20px;
+  background-color: white;
+  border: 1px solid lightgray;
+  box-shadow: 1px 1px 5px 1px lightgray;
+}
+
+/* =========== font sizes =========== */
+.title-xxxl{
+  font-size: 2.8em;
+}
+
+.title-xl{
+  font-size: 1.4em;
+}
+.thin-title{
+  font-weight: 300;
+}
+.title-l{
+  font-size: 1.1em;
+}
+
+.title-m{
+  font-size: .9em;
+}
+.title-s{
+  font-size: .8em;
+}
+.title-xs{
+  font-size: .75em;
+}
+.center-title{
+  text-align: center;
+  width: 100%;
+}
+
+.links{
+  text-decoration: none;
+}
+
+.tint{
+
+}
+.fa{
+
+}
+
+
+/* ========= flex sizes ========== */
+
+.flex-1{
+  flex: 1;
+}
+.flex-2{
+  flex: 2;
+}
+
+.flex-3{
+  flex: 3;
+}
