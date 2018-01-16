@@ -12,25 +12,24 @@ import Routes from './routes/routes.js'
 
 class App extends Component {
 
-  componentWillMount() {
-   console.log("This will mount");
- }
-
- componentDidMount() {
-   console.log("This did mount");
- }
-
- componentWillUnmount() {
-   console.log("This will unmount");
- }
+ // componentWillMount() {
+ //   console.log("This will mount");
+ // }
+ //
+ // componentDidMount() {
+ //   console.log("This did mount");
+ // }
+ //
+ // componentWillUnmount() {
+ //   console.log("This will unmount");
+ // }
 
   render() {
     return (
       <div className="page">
         <LeftNav />
-        {/* three message types - error, warning, success - important to use these three */}
+        <Routes />
           {/*<MessageBox messageType="error"/>*/}
-          {/* <Routes /> */}
       </div>
     );
   }

@@ -4,9 +4,9 @@ class LeftNav extends Component{
 
   leftNavLinks = [
     {
-      'name': 'Link',
+      'name': 'Sign In',
       'id': '0',
-      'url': '/random'
+      'url': '/signin'
     },
     {
       'name': 'Language',
@@ -42,8 +42,6 @@ class LeftNav extends Component{
               )
             })}
           </ul>
-
-
       </div>
     );
   }

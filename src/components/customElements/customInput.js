@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class CustomInput extends Component {
   render () {
     return (
-      <div className='form-element'>
+      <div className='form-input flex-property div-wrap'>
         <input
           id={this.props.inputId}
           type={this.props.inputType}
@@ -16,9 +16,6 @@ class CustomInput extends Component {
         <label htmlFor={this.props.InputId}>
           {this.props.inputPlaceholder}
         </label>
-        <div className='input-error-box'>
-          Incorrect format!
-        </div>
       </div>
     )
   }
