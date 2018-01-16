@@ -32,7 +32,7 @@ class LeftNav extends Component{
 
   render(){
     return(
-      <div className="flex-property flex-center left-navigation">
+      <div className="flex-property left-navigation">
           <ul>
             {this.leftNavLinks.map(function(object, i){
               return(

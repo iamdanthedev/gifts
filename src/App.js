@@ -6,8 +6,8 @@ import './css/index.css';
 
 import LeftNav from './components/LeftNav.jsx';
 
-import Footer from './components/Footer.js';
-import MessageBox from './components/messageBox.js';
+// import Footer from './components/Footer.js';
+// import MessageBox from './components/messageBox.js';
 import Routes from './routes/routes.js'
 
 class App extends Component {

@@ -10,10 +10,10 @@ class CustomInput extends Component {
           className='floated'
           required
           autoComplete='off'
-          required
           value={this.props.value}
+          onChange={this.props.onChangeValue}
         />
-        <label htmlFor={this.props.InputId}>
+        <label htmlFor="">
           {this.props.inputPlaceholder}
         </label>
       </div>

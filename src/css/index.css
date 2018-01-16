@@ -1,7 +1,7 @@
 body{
   font-family: "Lato","Arial";
 }
-h1,h2,h3,h4,h5{
+h1,h2,h3,h4,h5, h6{
   font-family: "Rubik","Lato","Arial";
 }
 a.link-font{
@@ -13,7 +13,13 @@ a.link-font{
   padding: 10px 0px;
   color: #f15656;
 }
-a.button-font{
+.mar-10{
+  margin: 10px;
+}
+.padd-20{
+  padding: 20px;
+}
+a.button-font, input.button-font{
   font-family: "Raleway";
   text-transform: uppercase;
   font-size: .7em;
@@ -22,6 +28,7 @@ a.button-font{
   margin: 5px 0px;
   padding: 10px 15px;
   background-color: #f15656;
+  border: 0px;
 }
 
 .flex-property{
@@ -80,7 +87,7 @@ a.button-font{
 .form-input-elements .floated {
   display: inline-block;
   width: 100%;
-  padding: 15px 5px 10px;
+  padding: 10px 0px;
   border-radius: 0px;
   background: #fff;
   border: none;
@@ -104,7 +111,7 @@ a.button-font{
   margin-bottom: 0px;
   color: #a7a7a7;
   left: 0px;
-  top: -10px;
+  top: -18px;
   text-shadow: 0 1px 0 rgba(19, 74, 70, 0);
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
@@ -179,7 +186,7 @@ a.button-font{
 .page-content{
   width: calc(100% - 100px);
   margin-left: auto;
-  padding: 20px 0px;
+  padding: 20px;
   height: 100%;
 }
 
@@ -213,6 +220,66 @@ a.button-font{
   margin: 20px 0px;
 }
 
+/* ================  Invite bar  ================ */
+.invite-bar{
+  width: 100%;
+}
+.invite-bar form{
+ width: 100%;
+}
+.invite-bar input[type="email"]{
+  border: 0px;
+  font-weight: 300;
+  font-size: .9em;
+  width: 100%;
+  border: 1px solid #e7e7e7;
+  height: 100%;
+  padding: 0px 10px;
+  border-right: 0px;
+  background-color: #f7f5f3;
+}
+.invite-bar .submit{
+  margin: 0px;
+}
+
+/* ================  BalanceBox  ================ */
+.balance-box{
+  margin: 10px 0px;
+  width: 100%;
+}
+.balance-part{
+  flex: 1;
+  height: 100px;
+}
+.balance-part:first-child{
+  border-right: 1px solid #ededed;
+}
+.balance-part h5{
+  width: 100%;
+  margin: 0px;
+  font-weight: 300;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+.balance-part h6{
+  width: 100%;
+  margin: 0px;
+  font-size: 1.4em;
+}
+.balance-part p{
+  margin: 0px;
+ font-size: .7em;
+ width: 100%;
+ text-transform: uppercase;
+ font-weight: 300;
+}
+.balance-part{
+  text-align: center;
+}
+/* ================  Groups  ================ */
+.groups{
+  width: 100%;
+}
 /* ================  Footer  ================ */
 
 footer{

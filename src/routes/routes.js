@@ -5,6 +5,7 @@ import { BrowserRouter, Route} from 'react-router-dom';
 
 import SignIn from '../components/SignIn.js';
 import Register from '../components/Register.js';
+import Home from '../components/Home.jsx';
 // import Register from '../components/register.js';
 
 
@@ -18,6 +19,7 @@ export default () => (
     <div className="page-content">
       <Route path="/signin" component={SignIn}></Route>
       <Route path="/register" component={Register}></Route>
+      <Route path="/home" component={Home}></Route>
     </div>
   </BrowserRouter>
 );
