@@ -1,0 +1,71 @@
+.flex-property{
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;
+}
+.flex-center{
+  justify-content: center;
+  align-items: center;
+}
+
+.white-box{
+  padding: 20px;
+  background-color: white;
+  border: 1px solid lightgray;
+  box-shadow: 1px 1px 5px 1px lightgray;
+}
+
+.page{
+  height: 100vh;
+}
+/* ================  Left navigation  ================ */
+
+.left-navigation{
+  width: 100px;
+  height: 100%;
+  background: #313146;
+  position: fixed;
+  left: 0;
+  top: 0px;
+  text-align: center;
+  bottom: 0;
+}
+
+.left-navigation ul{
+  list-style: none;
+  width: 100%;
+  flex-direction: column;
+}
+.left-navigation ul li{
+  width: 100%;
+  padding: 0px;
+  border-bottom: 1px solid #181825;
+  box-shadow: inset 0 1px 0 #474765;
+  transition: all .4s ease-in-out;
+}
+.left-navigation ul li a{
+  color: #757b8d;
+  display: block;
+  padding: 30px 0px;
+  width: 100%;
+  text-transform: uppercase;
+  transition: all .4s ease-in-out;
+}
+.left-navigation ul li:active, .left-navigation ul li:hover{
+  background-color: #242438;
+}
+.left-navigation ul li a:hover, .left-navigation ul li a:focus {
+  color: white;
+}
+
+/* ================  Footer  ================ */
+
+footer{
+  padding: 20px 0px;
+  width: 100%;
+  min-height: 100px;
+  z-index: 1000;
+  font-family: "Montserrat", "Lato", "Arial";
+}

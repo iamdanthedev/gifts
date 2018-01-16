@@ -16,17 +16,8 @@ class Footer extends Component{
 
   render(){
     return(
-      <footer className="header-gray light-gray">
-        {/* <ul className="single-line-list flex-property flex-center">
-          {this.footerLinks.map(function(object, i){
-            return(
-              <li key={i}><a className="light-gray footer-links title-s" href={object.url}>{object.name}</a></li>
-            )
-          })}
-        </ul> */}
+      <footer className="flex-property flex-center">
 
-        {/* <p className="title-s">
-        </p> */}
 
       </footer>
     );

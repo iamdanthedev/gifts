@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import './css/colorsFonts.css';
-import './css/common.css';
+import './css/styles.css';
 import './css/medias.css';
 import './css/index.css';
 
-import Header from './components/header.js';
-import Footer from './components/footer.js';
+import LeftNav from './components/LeftNav.jsx';
+
+import Footer from './components/Footer.js';
 import MessageBox from './components/messageBox.js';
 import Routes from './routes/routes.js'
 
@@ -27,11 +27,10 @@ class App extends Component {
   render() {
     return (
       <div className="page">
-        <Header />
+        <LeftNav />
         {/* three message types - error, warning, success - important to use these three */}
           {/*<MessageBox messageType="error"/>*/}
-          <Routes />
-        <Footer />
+          {/* <Routes /> */}
       </div>
     );
   }
