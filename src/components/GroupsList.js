@@ -11,7 +11,7 @@ class GroupsList extends Component{
 
   render(){
     return(
-      <div className="groups white-box flex-property div-wrap">
+      <div className="max-w groups white-box flex-property div-wrap">
         <OneGroup status="owe" amountValue="12$"/>
         <OneGroup status="clear" amountValue="16$"/>
         <OneGroup status="owes" amountValue="127$"/>

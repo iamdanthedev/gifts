@@ -10,7 +10,7 @@ class GroupsDetails extends Component{
 
   render(){
     return(
-      <div className="groups white-box flex-property div-wrap">
+      <div className="max-w groups white-box flex-property div-wrap">
 
 
       </div>

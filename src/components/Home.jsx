@@ -14,7 +14,7 @@ class Home extends Component{
 
   render(){
     return(
-      <div className="flex-property flex-center div-wrap">
+      <div className="max-w flex-property flex-center div-wrap">
         <InviteFriends />
         <BalanceBox />
         <Groups />

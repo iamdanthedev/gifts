@@ -11,7 +11,7 @@ class FriendsList extends Component{
 
   render(){
     return(
-      <div className="friends white-box flex-property div-wrap">
+      <div className="max-w friends white-box flex-property div-wrap">
         <OneFriend status="own" friendEmail="ex@gmail.com"/>
         <OneFriend status="clear" friendEmail="ex@gmail.com"/>
         <OneFriend status="owned" friendEmail="ex@gmail.com"/>

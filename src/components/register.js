@@ -4,7 +4,7 @@ import AccessForms from './AccessForms.jsx'
 class Register extends Component{
   render(){
     return(
-      <div className="connect-wrap flex-property flex-center">
+      <div className="max-w connect-wrap flex-property flex-center">
         <AccessForms formTitle="Register in few clicks" isRegister={true}/>
       </div>
     )

@@ -4,7 +4,7 @@ import AccessForms from './AccessForms.jsx'
 class SignIn extends Component{
   render(){
     return(
-      <div className="connect-wrap flex-property flex-center">
+      <div className="max-w connect-wrap flex-property flex-center">
         <AccessForms formTitle="Welcome back!" isRegister={false}/>
       </div>
     )
