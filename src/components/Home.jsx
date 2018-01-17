@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import InviteFriends from './InviteFriends.jsx'
 import BalanceBox from './BalanceBox.jsx'
 import Groups from './Groups.jsx'
+import Friends from './Friends.js'
 
 class Home extends Component{
   constructor(props) {
@@ -17,6 +18,7 @@ class Home extends Component{
         <InviteFriends />
         <BalanceBox />
         <Groups />
+        <Friends />
       </div>
     )
   }

@@ -279,6 +279,76 @@ a.button-font, input.button-font{
 /* ================  Groups  ================ */
 .groups{
   width: 100%;
+  margin-bottom: 10px;
+}
+.one-group{
+  height: 90px;
+  width: 48%;
+  padding: 10px;
+  margin: 1%;
+  box-shadow: 0px 0px 0px 0px;
+  background-color: white;
+  border: 1px solid #f1f1f1;
+  transition: all .3s ease-in-out;
+}
+.one-group:hover{
+  background-color: #f7f7f7;
+}
+.group-status{
+  height: 70px;
+  max-width: 70px;
+  flex: 1;
+}
+.group-color-clear{
+  background-color: #d2d3e3;
+}
+.group-color-own{
+  background-color: #f25556;
+}
+.group-color-owned{
+  background-color: #5fbe52;
+}
+.one-group .flex-property a, .one-group .flex-property p{
+  margin: 0px 10px;
+}
+.one-group .flex-property{
+  flex: 1;
+}
+.one-group .group-name{
+  width: 100%;
+  font-family: "Rubik";
+  font-weight: 500;
+  font-size: 1em;
+  color: #313246 !important;
+}
+.one-group .group-members{
+  width: 100%;
+  font-weight: 800;
+  font-size: 1.3em;
+  text-transform: uppercase;
+  height: 100%;
+  color: white;
+}
+.one-group .group-my-status{
+  width: 100%;
+  font-size: .7em;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-family: "Rubik";
+  color: #b3b3b3;
+}
+.group-info{
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+/* ================  Friends  ================ */
+
+.friend-status{
+  font-size: .5em;
+  width: 100%;
+  display: block;
+  text-align: center;
 }
 /* ================  Footer  ================ */
 
