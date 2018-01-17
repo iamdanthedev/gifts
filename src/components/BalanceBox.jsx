@@ -20,6 +20,11 @@ class BalanceBox extends Component{
     return(
       <div className="balance-box white-box flex-property">
         <div className="balance-part flex-property flex-center div-wrap">
+          <h5>Total</h5>
+          <h6>+9$</h6>
+          <p>in <span>13 groups</span></p>
+        </div>
+        <div className="balance-part flex-property flex-center div-wrap">
           <h5>You are owing</h5>
           <h6>12$</h6>
           <p>in <span>13 groups</span></p>

@@ -27,7 +27,16 @@ class AccessForms extends Component {
 			return <input className="button-font submit" type="submit" value="Login"/>
 		}
 	}
-
+	chooseUsername() {
+		if (this.state.isRegister) {
+			return <CustomInput
+				inputPlaceholder="Choose your name"
+				inputType="text"
+				inputId="register_username"
+				onChangeValue={this.handleUsernameChangeValue}
+			/>
+		}
+	}
 	render() {
 		return (<div className="login-content">
 			<form className="div-wrap white-form white-box flex-property" onSubmit={(e) => {
@@ -41,17 +50,18 @@ class AccessForms extends Component {
 						<CustomInput
 							inputPlaceholder="Enter email"
 							inputType="text"
-							inputId="login_email"
+							inputId="log_email"
 							onChangeValue={this.handleEmailChangeValue}
 							// value={this.state.emailInput}
 						/>
 						<CustomInput
 							inputPlaceholder="Enter password"
 							inputType="password"
-							inputId="login_password"
+							inputId="log_password"
 							onChangeValue={this.handlePassChangeValue}
 							// value={this.state.passInput}
 						/>
+						{this.chooseUsername()}
 					</div>
 					{!this.state.isRegister && <a className="link-font" href="/random">Forgot password?</a>}
 				</div>

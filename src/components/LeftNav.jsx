@@ -9,24 +9,39 @@ class LeftNav extends Component{
       'url': '/signin'
     },
     {
-      'name': 'Language',
-      'id': '2',
-      'url': '/random'
+      'name': 'Register',
+      'id': '8',
+      'url': '/register'
     },
     {
-      'name': 'Example',
+      'name': 'My profile',
+      'id': '7',
+      'url': '/home'
+    },
+    {
+      'name': 'Friends',
       'id': '3',
-      'url': '/random'
+      'url': '/friendsList'
     },
     {
-      'name': 'Group',
+      'name': 'Groups',
       'id': '4',
-      'url': '/random'
+      'url': '/groupsList'
+    },
+    {
+      'name': 'New group',
+      'id': '2',
+      'url': '/createGroup'
+    },
+    {
+      'name': 'Balances',
+      'id': '6',
+      'url': '/myBalances'
     },
     {
       'name': 'Log out',
       'id': '5',
-      'url': '/random'
+      'url': '/logout'
     }
   ];
 

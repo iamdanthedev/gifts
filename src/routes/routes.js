@@ -5,7 +5,12 @@ import { BrowserRouter, Route} from 'react-router-dom';
 
 import SignIn from '../components/SignIn.js';
 import Register from '../components/Register.js';
+import FriendsList from '../components/FriendsList.js';
+import GroupsList from '../components/GroupsList.js';
+import GroupDetails from '../components/GroupDetails.js';
+
 import Home from '../components/Home.jsx';
+
 // import Register from '../components/register.js';
 
 
@@ -20,6 +25,9 @@ export default () => (
       <Route path="/signin" component={SignIn}></Route>
       <Route path="/register" component={Register}></Route>
       <Route path="/home" component={Home}></Route>
+      <Route path="/friendsList" component={FriendsList}></Route>
+      <Route path="/groupsList" component={GroupsList}></Route>
+      <Route path="/groupDetails" component={GroupDetails}></Route>
     </div>
   </BrowserRouter>
 );

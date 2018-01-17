@@ -4,6 +4,9 @@ body{
 h1,h2,h3,h4,h5, h6{
   font-family: "Rubik","Lato","Arial";
 }
+a{
+  cursor: pointer;
+}
 a.link-font{
   font-family: "Raleway";
   text-transform: uppercase;
@@ -47,14 +50,14 @@ a.button-font, input.button-font{
   padding: 20px;
   background-color: white;
   border: 1px solid #f1f1f1;
-  -webkit-box-shadow: 1px 1px 5px 1px lightgrey;
-  box-shadow: 2px 2px 15px 0px #dcdad4;
+  -webkit-box-shadow: 1px 1px 10px 0px #ebebeb;
+  box-shadow: 1px 1px 10px 0px #ebebeb;
 }
 .div-wrap{
   flex-wrap: wrap;
 }
 .page{
-  height: 100vh;
+  min-height: 100vh;
   background-color: #f7f5f3;
 }
 
@@ -244,7 +247,7 @@ a.button-font, input.button-font{
 
 /* ================  BalanceBox  ================ */
 .balance-box{
-  margin: 10px 0px;
+  margin: 20px 0px;
   width: 100%;
 }
 .balance-part{
@@ -252,6 +255,9 @@ a.button-font, input.button-font{
   height: 100px;
 }
 .balance-part:first-child{
+  border-right: 1px solid #ededed;
+}
+.balance-part:nth-child(2){
   border-right: 1px solid #ededed;
 }
 .balance-part h5{
@@ -279,16 +285,20 @@ a.button-font, input.button-font{
 /* ================  Groups  ================ */
 .groups{
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  padding: 0px;
 }
 .one-group{
   height: 90px;
-  width: 48%;
+  width: 50%;
   padding: 10px;
-  margin: 1%;
-  box-shadow: 0px 0px 0px 0px;
+  margin: 0%;
+  -webkit-box-shadow: 0px 0px 0px 0px;
+  box-shadow: 0px 0px 0px 0px #f3f3f3;
   background-color: white;
-  border: 1px solid #f1f1f1;
+  border: 1px solid #f9f9f9;
+  -webkit-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
 }
 .one-group:hover{
@@ -298,15 +308,16 @@ a.button-font, input.button-font{
   height: 70px;
   max-width: 70px;
   flex: 1;
+  border-radius: 5px;
 }
-.group-color-clear{
-  background-color: #d2d3e3;
+.group-color-clear, .color-clear{
+  background-color: #e9e7e5;
 }
-.group-color-own{
-  background-color: #f25556;
+.group-color-owe, .color-owe{
+  background-color: #ffc1ca;
 }
-.group-color-owned{
-  background-color: #5fbe52;
+.group-color-owes, .color-owes{
+  background-color: #b8f1d1;
 }
 .one-group .flex-property a, .one-group .flex-property p{
   margin: 0px 10px;
@@ -317,8 +328,8 @@ a.button-font, input.button-font{
 .one-group .group-name{
   width: 100%;
   font-family: "Rubik";
-  font-weight: 500;
-  font-size: 1em;
+  font-weight: 300;
+  font-size: .9em;
   color: #313246 !important;
 }
 .one-group .group-members{
@@ -331,25 +342,68 @@ a.button-font, input.button-font{
 }
 .one-group .group-my-status{
   width: 100%;
-  font-size: .7em;
-  font-weight: 400;
-  text-transform: uppercase;
-  font-family: "Rubik";
-  color: #b3b3b3;
+  font-size: .8em;
+  font-weight: 300;
+  color: #9f9792;
 }
 .group-info{
-  justify-content: space-between;
-  align-items: center;
   height: 100%;
 }
-/* ================  Friends  ================ */
-
-.friend-status{
-  font-size: .5em;
+.group-info span{
+  font-size: .7em;
   width: 100%;
   display: block;
+  text-align: right;
+  color: #313246;
+}
+/* ================  Friends  ================ */
+.friends{
+  padding: 0px;
+}
+.one-friend{
+ width: 100%;
+ border-bottom: 1px solid #f1f1f1;
+ height: 61px;
+ padding: 0px 20px 0px 0px;
+}
+.friend-amount{
+
+}
+.friend-status{
+ max-width: 60px;
+ height: 60px;
+ flex: 1;
+}
+.friend-info{
+  flex: 6;
+  padding: 5px;
+}
+.friend-info a, .friend-info p{
+  width: 100%;
+  margin: 0px;
+}
+.friend-info a{
+  font-size: .9em;
+}
+.friend-info p{
+  font-size: .8em;
+  color: #8e8e8e;
+  font-weight: 300;
+}
+.friend-name{
+
+}
+.add-friend{
+  flex: 1;
+  color: black;
+  font-size: 1em;
+  width: 20px;
   text-align: center;
 }
+.friend-email{
+
+}
+
 /* ================  Footer  ================ */
 
 footer{

@@ -10,14 +10,15 @@ class OneFriend extends Component{
   }
   render(){
     return(
-      <div className="one-group white-box flex-property flex-center">
-        <div className="group-status group-color-clear">
-          <p className="group-members friend-amound div-wrap flex-property flex-center">
-            <span className="friend-status">owes you</span>13</p>
+      <div className="one-friend flex-property">
+        <div className="friend-status color-owes">
         </div>
-        <div className="group-info flex-property div-wrap">
-          <a className="group-name">Senka Ib.</a>
-          <p className="group-my-status"> Email: {this.props.friendEmail}</p>
+        <div className="friend-info flex-property div-wrap">
+          <a className="friend-name">Senka Ib.</a>
+          <p className="friend-email"> Email: {this.props.friendEmail}</p>
+        </div>
+        <div className="flex-center flex-property">
+          <a className="add-friend" href="/random">+</a>
         </div>
       </div>
     )

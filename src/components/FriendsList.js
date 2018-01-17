@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import OneFriend from './OneFriend.jsx'
 
-class Friends extends Component{
+class FriendsList extends Component{
   constructor(props) {
     super(props);
     this.state = {
@@ -22,4 +22,4 @@ class Friends extends Component{
     )
   }
 }
-export default Friends;
+export default FriendsList;

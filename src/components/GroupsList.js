@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import OneGroup from './OneGroup.jsx'
 
-class Groups extends Component{
+class GroupsList extends Component{
   constructor(props) {
     super(props);
     this.state = {
@@ -18,8 +18,16 @@ class Groups extends Component{
         <OneGroup status="owe" amountValue="4$"/>
         <OneGroup status="clear" amountValue="55$"/>
         <OneGroup status="owes" amountValue="83$"/>
+        <OneGroup status="owes" amountValue="127$"/>
+        <OneGroup status="owe" amountValue="4$"/>
+        <OneGroup status="clear" amountValue="55$"/>
+        <OneGroup status="owes" amountValue="83$"/>
+        <OneGroup status="owes" amountValue="127$"/>
+        <OneGroup status="owe" amountValue="4$"/>
+        <OneGroup status="clear" amountValue="55$"/>
+        <OneGroup status="owes" amountValue="83$"/>
       </div>
     )
   }
 }
-export default Groups;
+export default GroupsList;

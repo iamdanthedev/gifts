@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import GroupDetails from './GroupDetails.js'
 
 class OneGroup extends Component{
   constructor(props) {
@@ -7,6 +8,11 @@ class OneGroup extends Component{
       status: props.status,
       amountValue: props.amountValue,
     };
+    this.openGroupDetails = this.openGroupDetails.bind(this);
+  }
+  openGroupDetails(){
+    console.warn('senka');
+    return <GroupDetails />;
   }
   render(){
     return(
@@ -15,8 +21,9 @@ class OneGroup extends Component{
           <p className="group-members flex-property flex-center">13</p>
         </div>
         <div className="group-info flex-property div-wrap">
-          <a className="group-name">Reha rodjendan</a>
-          <p className="group-my-status">You <span>own</span> {this.props.amountValue}</p>
+          <span>13Dec</span>
+          <a href="/groupDetails" className="group-name">Reha rodjendan</a>
+          <p className="group-my-status">You owe {this.props.amountValue}</p>
         </div>
       </div>
     )
