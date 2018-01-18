@@ -8,6 +8,8 @@ import Register from '../components/Register.js';
 import FriendsList from '../components/FriendsList.js';
 import GroupsList from '../components/GroupsList.js';
 import GroupDetails from '../components/GroupDetails.js';
+import CreateGroup from '../components/CreateGroup.js';
+
 
 import Home from '../components/Home.jsx';
 
@@ -28,6 +30,7 @@ export default () => (
       <Route path="/friendsList" component={FriendsList}></Route>
       <Route path="/groupsList" component={GroupsList}></Route>
       <Route path="/groupDetails" component={GroupDetails}></Route>
+      <Route path="/createGroup" component={CreateGroup}></Route>
     </div>
   </BrowserRouter>
 );

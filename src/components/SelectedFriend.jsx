@@ -1,32 +1,31 @@
 import React, { Component } from 'react';
 
-class OneFriend extends Component{
+class SelectedFriend extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      status: props.status,
       friendName: props.friendName,
       friendEmail: props.friendEmail,
-      addToGroup: props.addToGroup,
+      removeFromGroup: props.removeFromGroup
     };
   }
-  handleAddToGroup = () => {
-    this.props.addToGroup(this.props.friendName, this.props.friendEmail);
+
+  handleRemoveToGroup = () => {
+      this.props.removeFromGroup(this.props.friendName, this.props.friendEmail);
   }
+
   render(){
     return(
-      <div className="one-friend flex-property">
-        <div className="friend-status color-owes">
-        </div>
+      <div className="selected-friend one-friend flex-property">
         <div className="friend-info flex-property div-wrap">
           <a className="friend-name">{this.props.friendName}</a>
           <p className="friend-email"> Email: {this.props.friendEmail}</p>
         </div>
         <div className="flex-center flex-property">
-          <a className="add-friend" onClick={this.handleAddToGroup}>+</a>
+          <a className="remove-friend" onClick={this.handleRemoveToGroup}>-</a>
         </div>
       </div>
     )
   }
 }
-export default OneFriend;
+export default SelectedFriend;
