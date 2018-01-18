@@ -1,0 +1,9 @@
+/* ================  Footer  ================ */
+
+footer{
+  padding: 20px 0px;
+  width: 100%;
+  min-height: 100px;
+  z-index: 1000;
+  font-family: "Montserrat", "Lato", "Arial";
+}

@@ -1,0 +1,77 @@
+
+/* ================  Create group  ================ */
+
+.createGroupForm{
+  width: 90%;
+  margin: auto;
+  padding: 20px 0px;
+}
+.create-group{
+  width: 100%;
+}
+.create-group h6{
+  text-align: center;
+  width: 100%;
+}
+.group-basic-info{
+
+}
+.group-members{
+  margin-bottom: 20px;
+}
+.createGroupForm .group-members .friends{
+  max-height: 400px;
+  overflow: auto;
+}
+/* datepicker  */
+.datepicker label{
+  font-size: .8em;
+  font-weight: 300;
+  margin-bottom: 0px;
+  color: #a7a7a7;
+  width: 100%;
+  margin-bottom: 5px;
+}
+.datepicker .react-date-picker{
+  width: 50%;
+  margin-bottom: 20px;
+}
+.datepicker .react-date-picker .react-date-picker__button{
+  width: 100%;
+  border: 0px;
+  border-bottom: 1px solid #d6d6d6;
+  padding-bottom: 2px;
+}
+.react-date-picker__clear-button g{
+  stroke: #f25556;
+}
+.react-date-picker__calendar-button{
+
+}
+.react-date-picker__button__icon svg{
+  height: 15px;
+}
+.react-date-picker__button__icon:hover svg g, .react-date-picker__button__icon:focus svg g {
+  stroke: #f25556 !important;
+}
+.react-date-picker__button__input input:invalid {
+  background: rgb(247, 245, 243) !important;
+}
+.react-date-picker__button__input__divider{
+  color: #d6d6d6;
+}
+.react-date-picker__button__input input{
+  min-width: calc(15px + 0.54em) !important;
+  font-size: .8em;
+  text-align: center;
+  color: #22252a;
+  font-weight: 300;
+}
+button.react-calendar__tile--active, button.react-calendar__tile--active:not([disabled]):hover, button.react-calendar__tile--active:not([disabled]):focus {
+    background: #f25556 !important;
+}
+.selected-members{
+  margin-bottom: 20px;
+  background-color: #f7f5f3;
+  padding: 20px 20px 10px;
+}

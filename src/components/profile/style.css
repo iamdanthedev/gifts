@@ -1,0 +1,29 @@
+/* ================  Forms  ================ */
+
+.connect-wrap{
+  max-width: 500px;
+  margin: auto;
+  height: 100%;
+}
+.connect-wrap form{
+  padding: 40px;
+}
+.connect-wrap form h4{
+  font-weight: 500;
+  color: #313246;
+}
+.inputs-column{
+  width: 100%;
+}
+.input-error-box{
+  display: none;
+}
+.form-input-elements{
+  width: 100%;
+}
+.form-input{
+  width: 100%;
+  flex-direction: column;
+  position: relative;
+  margin: 20px 0px;
+}

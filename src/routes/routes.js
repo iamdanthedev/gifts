@@ -3,34 +3,30 @@ import { BrowserRouter, Route} from 'react-router-dom';
 
 /* Import all page components here */
 
-import SignIn from '../components/SignIn.js';
-import Register from '../components/Register.js';
-import FriendsList from '../components/FriendsList.js';
-import GroupsList from '../components/GroupsList.js';
-import GroupDetails from '../components/GroupDetails.js';
-import CreateGroup from '../components/CreateGroup.js';
+import Login from '../components/login/';
+import Register from '../components/registerUser';
 
+import CreateGroup from '../components/groups/createGroup';
 
-import Home from '../components/Home.jsx';
+import Profile from '../components/profile';
+import ContainerFriends from '../components/friends/containerFriends'
+import ContainerGroups from '../components/groups/containerGroup'
 
-// import Register from '../components/register.js';
-
-
-/**
- * All routes go here.
- * Don't forget to import the components above after adding new route.
+/*
+    All routes go here.
  */
 
 export default () => (
   <BrowserRouter>
     <div className="page-content">
-      <Route path="/signin" component={SignIn}></Route>
+      <Route path="/login" component={Login}></Route>
       <Route path="/register" component={Register}></Route>
-      <Route path="/home" component={Home}></Route>
-      <Route path="/friendsList" component={FriendsList}></Route>
-      <Route path="/groupsList" component={GroupsList}></Route>
-      <Route path="/groupDetails" component={GroupDetails}></Route>
+
+      <Route path="/home" component={Profile}></Route>
+      <Route path="/friendsList" component={ContainerFriends}></Route>
+      <Route path="/groupsList" component={ContainerGroups}></Route>
       <Route path="/createGroup" component={CreateGroup}></Route>
+
     </div>
   </BrowserRouter>
 );

@@ -1,0 +1,137 @@
+body{
+  font-family: "Lato","Arial";
+}
+h1,h2,h3,h4,h5, h6{
+  font-family: "Rubik","Lato","Arial";
+}
+a{
+  cursor: pointer;
+}
+a.link-font{
+  font-family: "Raleway";
+  text-transform: uppercase;
+  font-size: .7em;
+  font-weight: 700;
+  margin: 5px 0px;
+  padding: 10px 0px;
+  color: #f15656;
+}
+.mar-10{
+  margin: 10px;
+}
+.padd-20{
+  padding: 20px;
+}
+a.button-font, input.button-font{
+  font-family: "Raleway";
+  text-transform: uppercase;
+  font-size: .7em;
+  font-weight: 700;
+  color: white;
+  margin: 5px 0px;
+  padding: 10px 15px;
+  background-color: #f15656;
+  border: 0px;
+}
+
+.flex-property{
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;
+}
+.flex-center{
+  justify-content: center;
+  align-items: center;
+}
+
+button, input, textarea, a, select{
+  outline: none !important;
+}
+button:hover{
+}
+
+ul{
+  margin: 0px;
+  padding: 0px;
+}
+a:hover{
+  text-decoration: none !important;
+}
+
+
+/* =========== font sizes =========== */
+.title-xxxl{
+  font-size: 2.8em;
+}
+
+.title-xl{
+  font-size: 1.4em;
+}
+.thin-title{
+  font-weight: 300;
+}
+.title-l{
+  font-size: 1.1em;
+}
+
+.title-m{
+  font-size: .9em;
+}
+.title-s{
+  font-size: .8em;
+}
+.title-xs{
+  font-size: .75em;
+}
+.center-title{
+  text-align: center;
+  width: 100%;
+}
+
+/* ========= flex sizes ========== */
+
+.flex-1{
+  flex: 1;
+}
+.flex-2{
+  flex: 2;
+}
+
+.flex-3{
+  flex: 3;
+}
+
+
+.white-box{
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #f1f1f1;
+  -webkit-box-shadow: 1px 1px 10px 0px #ebebeb;
+  box-shadow: 1px 1px 10px 0px #ebebeb;
+}
+.div-wrap{
+  flex-wrap: wrap;
+}
+.page{
+  min-height: 100vh;
+  background-color: #f7f5f3;
+}
+
+[type=reset], [type=submit], button, html [type=button]{
+  -webkit-appearance: listbox;
+}
+
+/* ================  Content layout  ================ */
+
+.max-w{
+  max-width: 900px;
+  margin: auto;
+}
+.page-content{
+  width: calc(100% - 100px);
+  margin-left: 100px;
+  padding: 20px;
+  height: 100%;
+}
