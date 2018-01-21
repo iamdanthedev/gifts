@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types'
-import styles from './style.css';
+import './style.css';
 
 class FriendBox extends Component{
   state = {
@@ -9,14 +8,6 @@ class FriendBox extends Component{
     friendEmail: this.props.friendEmail,
     addToGroup: this.props.addToGroup,
   }
-
-  // static propTypes = {
-  //   // handleAddToGroup: PropTypes.func.isRequired
-  // }
-
-  // static defaultProps = {
-  //   handleAddToGroup: () => {}
-  // }
 
   handleAddToGroup = () => {
     this.props.addToGroup(this.props.friendName, this.props.friendEmail);

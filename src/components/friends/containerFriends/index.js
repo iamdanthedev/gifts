@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import FriendBox from '../friendsBox'
-import InviteFriends from '../../layout/inviteFriends'
 
 class Friends extends Component{
   constructor(props) {
@@ -53,7 +52,6 @@ class Friends extends Component{
         ]
     };
   }
-
   render(){
     return(
       <div class="list-page">

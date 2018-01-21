@@ -1,7 +1,29 @@
 {
-  "user": {
-   "username": "senka",
-   "email": "chris@quiver.is",
-   "pass": "lala"
- }
+  "users":[
+    {
+     "username": "senka",
+     "email": "senka@quiver.is",
+     "pass": "lala"
+    },
+    {
+     "username": "reha",
+     "email": "reha@quiver.is",
+     "pass": "lala"
+    },
+    {
+     "username": "nejra",
+     "email": "nejra@quiver.is",
+     "pass": "lala"
+    },
+    {
+     "username": "adnan",
+     "email": "adnan@quiver.is",
+     "pass": "lala"
+    },
+    {
+     "username": "vato",
+     "email": "vato@quiver.is",
+     "pass": "lala"
+    }
+  ]
 }

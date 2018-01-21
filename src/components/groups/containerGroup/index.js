@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import GroupBox from '../groupBox'
-import InviteFriends from '../../layout/inviteFriends';
-
 
 class containerGroup extends Component{
   constructor(props) {

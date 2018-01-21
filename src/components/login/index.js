@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import CustomInput from '../customInput'
 
-import styles from './style.css';
+import './style.css';
 
 class Login extends Component {
 	constructor(props) {

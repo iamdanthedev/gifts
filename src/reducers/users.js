@@ -1,14 +1,21 @@
+const registerUser = (state = {
+	users: []
+}, action) => {
+	switch (action.type) {
+		case 'REGISTER_USER':
+			return {
+				...state,
+				users: [
+					...state.users, {
+						'reg_email': action.reg_email,
+						'reg_username': action.reg_username,
+            'reg_pass': action.reg_pass
+					}
+				]
+			}
 
-const users = (state = { users: [], tempUser: {} }, action) => {
-  switch (action.type) {
-    case 'INPUT_CHANGE':
-      return { ...state, tempUser: { ...state.tempUser, [action.name]: action.value } }
-    case 'ADD_USER':
-        return {
-          ...state, users: [...state.users, state.tempUser]
-        }
-    default:
-      return state
-    }
+		default:
+			return state
+	}
 }
-export default users
+export default registerUser

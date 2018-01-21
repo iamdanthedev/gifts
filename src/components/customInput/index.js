@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from './style.css';
+import './style.css';
 
 class CustomInput extends Component {
   render () {
@@ -12,7 +12,7 @@ class CustomInput extends Component {
           required
           autoComplete='off'
           value={this.props.value}
-          onChange={this.props.onChangeValue}
+          onChange={this.props.onChangeValue(this.props.inputId)}
         />
         <label htmlFor="">
           {this.props.inputPlaceholder}

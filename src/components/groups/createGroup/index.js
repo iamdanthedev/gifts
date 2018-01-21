@@ -6,7 +6,7 @@ import CustomInput from '../../customInput'
 import FriendBox from '../../friends/friendsBox'
 import SelectedFriend from '../../friends/selectedFriendBox'
 
-import styles from './style.css';
+import './style.css';
 
 class CreateGroup extends Component{
   constructor(props) {

@@ -1,61 +1,48 @@
 import React, {Component} from 'react';
-import CustomInput from '../customInput'
-
 import {connect} from 'react-redux'
-import {addUser} from '../../actions/register.js'
-import PropTypes from 'prop-types'
+import CustomInput from '../customInput'
+import {RegisterUserRouter} from '../../containers/Register.js'
+import './style.css';
 
-import styles from './style.css';
-
-let Register = ({dispatch}) => {
-	const handleChange = (name) => (e) => {
-		console.log('handleChange a name je: ' + name );
-			dispatch({
-					type: 'INPUT_CHANGE',
-					value: e.target.value,
-					name: name
-			})
+export default class Register extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+				reg_email: props.reg_email,
+				reg_username: props.reg_username
+		};
+		this.reg_pass = "";
+		this.handleValue = this.handleValue.bind(this);
+		this.submitForm = this.submitForm.bind(this);
+		this.handlePass = this.handlePass.bind(this);
 	}
-	const submitForm = (e) => {
-			e.preventDefault();
-			console.log('submit form function');
-			dispatch({
-					type: 'ADD_USER'
-			})
+	submitForm = (e) => {
+		e.preventDefault();
+		this.props.registerUser(this.state.reg_email, this.state.reg_username, this.reg_pass);
 	}
-
-	return (
-		<div className="max-w connect-wrap flex-property flex-center">
-		<div className="login-content">
-			<form className="div-wrap white-form white-box flex-property" onSubmit={submitForm}>
-
-				<h4>Register in few clicks!</h4>
-				<div className='inputs-column flex-property div-wrap'>
-					<div className="form-input-elements">
-						<CustomInput
-							inputPlaceholder="Enter email"
-							inputType="text"
-							inputId="reg_email"
-							onChangeValue={handleChange('reg_email')}/>
-						<CustomInput
-							inputPlaceholder="Enter password"
-							inputType="password"
-							inputId="reg_password"
-							onChangeValue={handleChange('reg_password')}/>
-						<CustomInput
-							inputPlaceholder="Choose username"
-							inputType="text"
-							inputId="reg_username"
-							onChangeValue={handleChange('reg_username')}/>
+	handleValue = (key) => (e) => {
+		this.setState({[key]: e.target.value})
+	}
+	handlePass = (key) => (e) => {
+		this.reg_pass = e.target.value;
+	}
+	render() {
+		return (<div className="max-w connect-wrap flex-property flex-center">
+			<div className="login-content">
+				<form className="div-wrap white-form white-box flex-property" onSubmit={this.submitForm}>
+					<h4>Register in few clicks!</h4>
+					<div className='inputs-column flex-property div-wrap'>
+						<div className="form-input-elements">
+							<CustomInput inputPlaceholder="Enter email" inputType="text" inputId="reg_email" onChangeValue={this.handleValue}/>
+							<CustomInput inputPlaceholder="Enter password" inputType="password" inputId="reg_password" onChangeValue={this.handlePass}/>
+							<CustomInput inputPlaceholder="Choose username" inputType="text" inputId="reg_username" onChangeValue={this.handleValue}/>
+						</div>
 					</div>
-				</div>
-				<div className="buttons-row flex-property">
-					<input className="button-font submit" type="submit" value="Register"/>
-				</div>
-			</form>
-		</div>
-	</div>)
+					<div className="buttons-row flex-property">
+						<input className="button-font submit" type="submit" value="Register"/>
+					</div>
+				</form>
+			</div>
+		</div>)
+	}
 }
-
-Register = connect()(Register)
-export default Register;

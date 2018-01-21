@@ -4,7 +4,7 @@ import { BrowserRouter, Route} from 'react-router-dom';
 /* Import all page components here */
 
 import Login from '../components/login/';
-import Register from '../components/registerUser';
+import Register from '../containers/Register';
 
 import CreateGroup from '../components/groups/createGroup';
 

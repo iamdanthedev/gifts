@@ -1,10 +1,13 @@
 import { combineReducers } from 'redux'
-// import friends from './friends'
-// import groups from './groups'
-import users from './users'
+import { routerReducer } from 'react-router-redux';
+import { firebaseReducer } from 'react-redux-firebase'
+//import thunk
+import registerUser from './users.js'
 
 const EventsApp = combineReducers({
-  users
+  registerUser,
+  firebase: firebaseReducer,
+  routing: routerReducer
 })
 
 export default EventsApp
