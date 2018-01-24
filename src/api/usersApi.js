@@ -21,10 +21,30 @@ export const register = (id, reg_email, reg_username, reg_pass) => {
 		reg_username,
 		reg_pass
 	};
-
+	id++;
 	return new Promise((resolve, reject) => {
 		firebase.database().ref(FIREBASE_DB_NAME + '/' + id).set({
 			id, reg_email, reg_username, reg_pass
+		}, error => {
+			if (error) {
+				reject(error);
+			} else {
+				resolve(user);
+			}
+		});
+		console.log('3. dodje do promisa register.. ');
+	});
+}
+
+
+export const login = (log_email, log_password) => {
+	const user = {
+		log_email,
+		log_password
+	};
+	return new Promise((resolve, reject) => {
+		firebase.database().ref(FIREBASE_DB_NAME + '/' + id).set({
+			log_email, log_password
 		}, error => {
 			if (error) {
 				reject(error);

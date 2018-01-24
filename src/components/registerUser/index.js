@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux'
 import CustomInput from '../customInput'
 import {RegisterUserRouter} from '../../containers/Register.js'
+
 import './style.css';
 
 export default class Register extends Component {

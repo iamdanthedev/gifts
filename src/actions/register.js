@@ -1,4 +1,4 @@
-import { register } from '../api/api.js';
+import { register } from '../api/usersApi.js';
 // import { push } from 'react-router-redux';
 
 export const registerUser = (reg_email, reg_username, reg_pass) => ({
@@ -20,8 +20,6 @@ export const asyncRegister = (reg_email, reg_username, reg_pass) => (dispatch) =
   console.log('2. pozove asyncRegister');
   register(id, reg_email, reg_username, reg_pass).then( user => {
       dispatch(registerUser(id, reg_email, reg_username, reg_pass));
-      // dispatch(registerUser(id, reg_email, reg_username, reg_pass));
-      // dispatch(push('/users'));
       console.warn('3. udje u then -> nakon asyncRegistera');
     })
     // .catch(error => dispatch(registerFailure(error.message)));
