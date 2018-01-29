@@ -1,0 +1,35 @@
+/* group details page */
+
+.details-content{
+
+}
+.details-content h4{
+  text-align: center;
+  margin: 20px 0px;
+}
+.details-content .date, .details-content .desc{
+  margin: 0px 0px 20px;
+  color: #222b39;
+  font-weight: 300;
+}
+.details-content .desc{
+
+}
+.details-content .date{
+
+}
+.details-content .friends{
+  margin-bottom: 20px;
+}
+.details-content .title-info{
+  text-transform: uppercase;
+  color: #313246;
+  font-weight: 800;
+}
+.details-content .group-detail-info{
+
+}
+
+.details-content .green-button{
+  margin-left: 10px !important;
+}

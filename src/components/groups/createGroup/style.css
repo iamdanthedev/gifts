@@ -75,3 +75,22 @@ button.react-calendar__tile--active, button.react-calendar__tile--active:not([di
   background-color: #f7f5f3;
   padding: 20px 20px 10px;
 }
+.selected-friend{
+  width: auto !important;
+  border: 1px solid #ededed;
+  -ms-flex: 1 1;
+  flex: 1 1;
+  display: -ms-inline-flexbox;
+  display: inline-flex !important;
+  height: auto;
+  max-height: 52px;
+  border-radius: 3px;
+  font-size: .9em;
+  padding: 0px 5px;
+  background-color: white;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.form-input-elements .group-name{
+  margin: 0px; 
+}

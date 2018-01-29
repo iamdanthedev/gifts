@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import './style.css';
+import LoggedBubble from '../../loggedBubble'
 
 class LeftNav extends Component{
 
   leftNavLinks = [
-    {
-      'name': 'Sign In',
-      'id': '0',
-      'url': '/login'
-    },
     {
       'name': 'Register',
       'id': '8',
@@ -38,19 +34,39 @@ class LeftNav extends Component{
       'name': 'Balances',
       'id': '6',
       'url': '/myBalances'
-    },
-    {
-      'name': 'Log out',
-      'id': '5',
-      'url': '/logout'
     }
   ];
+
+  loginLinks = [
+    // {
+    //   'name': 'Log out',
+    //   'id': '5',
+    //   'url': '/logout'
+    // },
+    {
+      'name': 'Sign In',
+      'id': '0',
+      'url': '/login'
+    }
+  ]
 
   render(){
     return(
       <div className="flex-property left-navigation">
           <ul>
+            <LoggedBubble />
+            
             {this.leftNavLinks.map(function(object, i){
+              return(
+                <li key={i} className="flex-property flex-center">
+                  <a className="title-xs" href={object.url}>{object.name}</a>
+                </li>
+              )
+            })}
+          </ul>
+
+          <ul>
+            {this.loginLinks.map(function(object, i){
               return(
                 <li key={i} className="flex-property flex-center">
                   <a className="title-xs" href={object.url}>{object.name}</a>

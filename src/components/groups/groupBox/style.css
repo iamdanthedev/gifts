@@ -7,9 +7,9 @@
 }
 .one-group{
   height: 90px;
-  width: 50%;
-  padding: 10px;
-  margin: 0%;
+  width: calc(50% - 10px);
+  margin: 5px;
+  padding: 10px !important;
   -webkit-box-shadow: 0px 0px 0px 0px;
   box-shadow: 0px 0px 0px 0px #f3f3f3;
   background-color: white;
@@ -36,7 +36,7 @@
 .group-color-owes, .color-owes{
   background-color: #b8f1d1;
 }
-.one-group .flex-property a, .one-group .flex-property p{
+.one-group .flex-property a, .one-group .flex-property p, .group-name{
   margin: 0px 10px;
 }
 .one-group .flex-property{
@@ -48,6 +48,7 @@
   font-weight: 300;
   font-size: .9em;
   color: #313246 !important;
+  margin-top: -10px !important;
 }
 .one-group .group-members{
   width: 100%;

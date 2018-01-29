@@ -54,7 +54,7 @@ class Friends extends Component{
   }
   render(){
     return(
-      <div class="list-page">
+      <div className="list-page">
         <div className="max-w friends white-box flex-property div-wrap">
           {
             this.state.temp.map((friend) =>

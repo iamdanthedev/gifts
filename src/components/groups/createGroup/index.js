@@ -77,6 +77,9 @@ class CreateGroup extends Component{
      temp: this.state.temp.concat(removeFriend)
    });
   }
+  handleNameChangeValue(){
+
+  }
   render(){
     return(
       <div className="max-w groups flex-property div-wrap">
@@ -107,7 +110,7 @@ class CreateGroup extends Component{
                 </div>
               </div>
               <div className="datepicker flex-property div-wrap">
-                <label>Choose end date of event</label>
+                <label>Choose date of event</label>
                 <DatePicker
                   onChange={this.handleDateOnChange}
                   value={this.state.date}

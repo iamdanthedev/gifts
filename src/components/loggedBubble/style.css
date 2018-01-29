@@ -1,0 +1,13 @@
+.login-bubble{
+}
+
+.login-bubble .username{
+  color: #65768d;
+  padding: 20px 0px;
+  text-transform: uppercase;
+}
+.login-bubble .username .fa{
+  margin-bottom: 10px;
+  color: #f25556;
+  font-size: 1.3em !important;
+}

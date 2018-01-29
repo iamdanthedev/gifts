@@ -118,7 +118,9 @@ a:hover{
   min-height: 100vh;
   background-color: #f7f5f3;
 }
-
+.page-content{
+  min-height: 100vh;
+}
 [type=reset], [type=submit], button, html [type=button]{
   -webkit-appearance: listbox;
 }
@@ -134,4 +136,12 @@ a:hover{
   margin-left: 100px;
   padding: 20px;
   height: 100%;
+}
+
+.column-orient{
+  flex-direction: column;
+}
+
+.green-button{
+  background-color: #7dd3a4 !important;
 }

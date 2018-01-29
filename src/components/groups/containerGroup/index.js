@@ -11,7 +11,7 @@ class containerGroup extends Component{
 
   render(){
     return(
-      <div class="list-page">
+      <div className="list-page">
         <div className="max-w groups white-box flex-property div-wrap">
           <GroupBox status="owe" amountValue="12$"/>
           <GroupBox status="clear" amountValue="16$"/>

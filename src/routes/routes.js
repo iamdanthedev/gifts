@@ -11,6 +11,7 @@ import CreateGroup from '../components/groups/createGroup';
 import Profile from '../components/profile';
 import ContainerFriends from '../components/friends/containerFriends'
 import ContainerGroups from '../components/groups/containerGroup'
+import GroupDetails from '../components/groups/groupDetails'
 
 /*
     All routes go here.
@@ -26,7 +27,7 @@ export default () => (
       <Route path="/friendsList" component={ContainerFriends}></Route>
       <Route path="/groupsList" component={ContainerGroups}></Route>
       <Route path="/createGroup" component={CreateGroup}></Route>
-
+      <Route path="/groupDetails" component={GroupDetails}></Route>
     </div>
   </BrowserRouter>
 );

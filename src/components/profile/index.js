@@ -5,6 +5,8 @@ import BalanceBox from '../balance'
 import Friends from '../friends/containerFriends'
 import GroupBox from '../groups/groupBox'
 
+import './style.css';
+
 class Profile extends Component{
   constructor(props) {
     super(props);

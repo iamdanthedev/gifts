@@ -3,6 +3,28 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 https://console.firebase.google.com/u/0/project/eventplanner-13e0d/database/eventplanner-13e0d/data
 
+
+*************
+- korisnik:
+ id:
+ reg_email:
+ reg_pass:
+ reg_username:
+ groups_member: - pamtiti id grupe koje je clan pa izlistati sve grupe s tim id-jevima, i pamtiti koliko je duzan/ili treba dobit zajedno sa grupom
+ user_friends: - pamtiti id prijatelja --- || ------
+ full_balance: - sumirati sve dugove i one sto mu duguju?
+
+- grupa:
+- pri kreiranju grupe, zapamtiti id-jeve prijatelja koji su dodani, ime grupe, i trosak
+- podijeliti trosak na broj ljudi, i update u bazi njihove balances, i groups_member
+- pamtiti koji user id je napravio grupu, ako je logovani user == useru koji je kreirao - prikazati edit opcije ili delete
+
+- add friend? ghost ako ne prihvati invajt?
+
+- Napraviti da se otvori grupa da se vide detalji
+-  u grupi samoj je moguce kliknuti payoff tako da se groups_member payoof promjeni na 0
+
+
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 

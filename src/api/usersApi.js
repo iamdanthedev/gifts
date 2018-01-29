@@ -34,8 +34,12 @@ export const register = (id, reg_email, reg_username, reg_pass) => {
 		});
 		console.log('3. dodje do promisa register.. ');
 	});
-}
-
+	// firebase.auth().createUserWithEmailAndPassword(reg_email, reg_pass).catch(function(error) {
+  // // Handle Errors here.
+	// console.log('udje u autch');
+  // // ...
+	// 	});
+	};
 
 export const login = (log_email, log_password) => {
 	const user = {
