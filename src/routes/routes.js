@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter, Route} from 'react-router-dom';
+import { Route} from 'react-router-dom';
+import { userIsAuthenticated } from '../utils/userIsAuthenticated';
 
 /* Import all page components here */
 
@@ -18,16 +19,14 @@ import GroupDetails from '../components/groups/groupDetails'
  */
 
 export default () => (
-  <BrowserRouter>
-    <div className="page-content">
-      <Route path="/login" component={Login}></Route>
-      <Route path="/register" component={Register}></Route>
+  <div className="page-content">
+    <Route path="/login" component={Login}></Route>
+    <Route path="/register" component={Register}></Route>
 
-      <Route path="/home" component={Profile}></Route>
-      <Route path="/friendsList" component={ContainerFriends}></Route>
-      <Route path="/groupsList" component={ContainerGroups}></Route>
-      <Route path="/createGroup" component={CreateGroup}></Route>
-      <Route path="/groupDetails" component={GroupDetails}></Route>
-    </div>
-  </BrowserRouter>
+    <Route path="/home" component={userIsAuthenticated(Profile)}></Route>
+    <Route path="/friendsList" component={userIsAuthenticated(ContainerFriends)}></Route>
+    <Route path="/groupsList" component={userIsAuthenticated(ContainerGroups)}></Route>
+    <Route path="/createGroup" component={userIsAuthenticated(CreateGroup)}></Route>
+    <Route path="/groupDetails" component={userIsAuthenticated(GroupDetails)}></Route>
+  </div>
 );

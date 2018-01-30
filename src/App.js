@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 import P from 'prop-types';
 import Routes from './routes/routes.js'
 import LeftNav from './components/layout/leftNav';
@@ -10,20 +11,22 @@ class App extends Component {
   render() {
 
     return (
-      <div className="page">
+      <BrowserRouter>
+        <div className="page">
 
-        {this.props.isLoading && (
-          <Loader />
-        )}
+          {this.props.isLoading && (
+            <Loader />
+          )}
 
-        {!this.props.isLoading && (
-          <React.Fragment>
-            <LeftNav />
-            <Routes />
-          </React.Fragment>
-        )}
+          {!this.props.isLoading && (
+            <React.Fragment>
+              <LeftNav />
+              <Routes />
+            </React.Fragment>
+          )}
 
-      </div>
+        </div>
+      </BrowserRouter>
     );
   }
 }
