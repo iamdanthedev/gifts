@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import P from 'prop-types';
 import { Link } from 'react-router-dom';
 import LoggedBubble from '../../loggedBubble';
 
@@ -56,7 +57,7 @@ class LeftNav extends Component {
     return (
       <div className="flex-property left-navigation">
         <ul>
-          <LoggedBubble />
+          <LoggedBubble username={this.props.username} />
 
           {this.leftNavLinks.map(function(object, i) {
             return (
@@ -84,5 +85,9 @@ class LeftNav extends Component {
     );
   }
 }
+
+LeftNav.propTypes = {
+  username: P.string.isRequired
+};
 
 export default LeftNav;

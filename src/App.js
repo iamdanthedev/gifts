@@ -20,7 +20,7 @@ class App extends Component {
 
           {!this.props.isLoading && (
             <React.Fragment>
-              <LeftNav />
+              <LeftNav username={this.props.username.split('@')[0]} />
               <Routes />
             </React.Fragment>
           )}
@@ -32,9 +32,12 @@ class App extends Component {
 }
 
 App.propTypes = {
-  isLoading: P.bool
+  isLoading: P.bool,
+  username: P.string,
 };
 
+// TODO: username should equal username from the profile, not email
 export default connect(s => ({
-  isLoading: s.core.isLoading
+  isLoading: s.core.isLoading,
+  username: s.firebase.auth.email
 }))(App);
