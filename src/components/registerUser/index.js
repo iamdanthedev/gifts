@@ -17,6 +17,7 @@ export default class Register extends Component {
     this.handlePass = this.handlePass.bind(this);
   }
   submitForm = e => {
+    console.log('submite', e);
     e.preventDefault();
     this.props.registerUser(this.state.reg_email, this.state.reg_username, this.reg_pass);
   };

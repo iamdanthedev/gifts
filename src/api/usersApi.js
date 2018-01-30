@@ -1,61 +1,55 @@
-import * as firebase from 'firebase'
-const FIREBASE_DB_NAME = '/users';
-
-// Firebase config
-const firebaseConfig = {
-  apiKey: "AIzaSyDOmyk0c2aEfVLoevdihwbcCUmWarQHQmQ",
-  authDomain: "eventplanner-13e0d.firebaseapp.com",
-  databaseURL: "https://eventplanner-13e0d.firebaseio.com",
-  projectId: "eventplanner-13e0d",
-  storageBucket: "",
-  messagingSenderId: "714064956270"
-}
-firebase.initializeApp(firebaseConfig);
+import * as firebase from 'firebase';
+import fb from '../services/firebase';
+import { User } from '../model/user';
 
 let id = 0;
 
-export const register = (id, reg_email, reg_username, reg_pass) => {
-  const user = {
-    id,
-    reg_email,
-    reg_username,
-    reg_pass
-  };
-  id++;
-  return new Promise((resolve, reject) => {
-    firebase.database().ref(FIREBASE_DB_NAME + '/' + id).set({
-      id, reg_email, reg_username, reg_pass
-    }, error => {
-      if (error) {
-        reject(error);
-      } else {
-        resolve(user);
-      }
+export const register = async (reg_email, reg_username, reg_pass) => {
+
+  try {
+    const fbUser = await firebase.auth().createUserWithEmailAndPassword(reg_email, reg_pass);
+
+    const user = new User({
+      email: fbUser.email,
+      username: reg_username
     });
-    console.log('3. dodje do promisa register.. ');
-  });
-  // firebase.auth().createUserWithEmailAndPassword(reg_email, reg_pass).catch(function(error) {
-  // // Handle Errors here.
-  // console.log('udje u autch');
-  // // ...
-  // 	});
+
+    return user;
+  }
+  catch (e) {
+    // TODO: log error
+    return Promise.reject(e);
+  }
 };
 
-export const login = (log_email, log_password) => {
-  const user = {
-    log_email,
-    log_password
-  };
-  return new Promise((resolve, reject) => {
-    firebase.database().ref(FIREBASE_DB_NAME + '/' + id).set({
-      log_email, log_password
-    }, error => {
-      if (error) {
-        reject(error);
-      } else {
-        resolve(user);
-      }
-    });
-    console.log('3. dodje do promisa register.. ');
-  });
-}
+export const login = async (log_email, log_password) => {
+
+  try {
+    await firebase.auth().signInWithEmailAndPassword(log_email, log_password);
+  }
+  catch(e) {
+    return Promise.resolve(e);
+  }
+
+  //
+  // const user = {
+  //   log_email,
+  //   log_password
+  // };
+  // return new Promise((resolve, reject) => {
+  //   firebase.database().ref(FIREBASE_DB_NAME + '/' + id).set({
+  //     log_email, log_password
+  //   }, error => {
+  //     if (error) {
+  //       reject(error);
+  //     } else {
+  //       resolve(user);
+  //     }
+  //   });
+  //   console.log('3. dodje do promisa register.. ');
+  // });
+};
+
+export const logout = async () => {
+  await firebase.auth().signOut();
+};

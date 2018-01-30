@@ -5,81 +5,88 @@ import LoggedBubble from '../../loggedBubble';
 
 import './style.css';
 
+const leftNavLinks = [
+  {
+    name: 'Register',
+    id: '8',
+    url: '/register',
+    hideOnSignIn: true
+  },
+  {
+    name: 'My profile',
+    id: '7',
+    url: '/home',
+    protected: true,
+  },
+  {
+    name: 'Friends',
+    id: '3',
+    url: '/friendsList',
+    protected: true,
+  },
+  {
+    name: 'Groups',
+    id: '4',
+    url: '/groupsList',
+    protected: true,
+  },
+  {
+    name: 'New group',
+    id: '2',
+    url: '/createGroup',
+    protected: true,
+  },
+  {
+    name: 'Balances',
+    id: '6',
+    url: '/myBalances',
+    protected: true,
+  },
+];
+
+const allLoginLinks = [
+  {
+    name: 'Sign out',
+    id: '5',
+    url: '/logout',
+    protected: true,
+  },
+  {
+    name: 'Sign In',
+    id: '0',
+    url: '/login',
+    hideOnSignIn: true
+  },
+];
+
+const filterLinks = (links, signedIn) => signedIn
+  ? links.filter(l => !l.hideOnSignIn)
+  : links.filter(l => !l.protected);
+
+const NavLink = ({ name, url }) => (
+  <li className="flex-property flex-center">
+    <Link className="title-xs" to={url}>
+      {name}
+    </Link>
+  </li>
+);
+
 class LeftNav extends Component {
 
-  leftNavLinks = [
-    {
-      name: 'Register',
-      id: '8',
-      url: '/register',
-    },
-    {
-      name: 'My profile',
-      id: '7',
-      url: '/home',
-    },
-    {
-      name: 'Friends',
-      id: '3',
-      url: '/friendsList',
-    },
-    {
-      name: 'Groups',
-      id: '4',
-      url: '/groupsList',
-    },
-    {
-      name: 'New group',
-      id: '2',
-      url: '/createGroup',
-    },
-    {
-      name: 'Balances',
-      id: '6',
-      url: '/myBalances',
-    },
-  ];
-
-  loginLinks = [
-    // {
-    //   'name': 'Log out',
-    //   'id': '5',
-    //   'url': '/logout'
-    // },
-    {
-      name: 'Sign In',
-      id: '0',
-      url: '/login',
-    },
-  ];
-
   render() {
+
+    const navLinks = filterLinks(leftNavLinks, this.props.isSignedIn);
+    const loginLinks = filterLinks(allLoginLinks, this.props.isSignedIn);
+
     return (
       <div className="flex-property left-navigation">
         <ul>
           <LoggedBubble username={this.props.username} />
-
-          {this.leftNavLinks.map(function(object, i) {
-            return (
-              <li key={i} className="flex-property flex-center">
-                <Link className="title-xs" to={object.url}>
-                  {object.name}
-                </Link>
-              </li>
-            );
-          })}
+          {navLinks.map((object, i) => <NavLink key={i} {...object} />)}
         </ul>
 
         <ul>
-          {this.loginLinks.map(function(object, i) {
-            return (
-              <li key={i} className="flex-property flex-center">
-                <Link className="title-xs" to={object.url}>
-                  {object.name}
-                </Link>
-              </li>
-            );
-          })}
+          {loginLinks.map((object, i) => <NavLink key={i} {...object} />)}
         </ul>
       </div>
     );
@@ -87,7 +94,8 @@ class LeftNav extends Component {
 }
 
 LeftNav.propTypes = {
-  username: P.string.isRequired
+  isSignedIn: P.bool,
+  username: P.string,
 };
 
 export default LeftNav;

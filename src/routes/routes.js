@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route} from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
 import { userIsAuthenticated } from '../utils/userIsAuthenticated';
 
 /* Import all page components here */
@@ -18,9 +18,13 @@ import GroupDetails from '../components/groups/groupDetails'
     All routes go here.
  */
 
-export default () => (
+export default ({ logout }) => (
   <div className="page-content">
     <Route path="/login" component={Login}></Route>
+    <Route path="/logout" render={() => {
+      logout();
+      return <Redirect to="/login" />;
+    }} />
     <Route path="/register" component={Register}></Route>
 
     <Route path="/home" component={userIsAuthenticated(Profile)}></Route>

@@ -1,3 +1,4 @@
+// TODO: fix this
 const registerUser = (state = {
 	users: []
 }, action) => {

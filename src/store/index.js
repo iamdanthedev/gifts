@@ -3,7 +3,7 @@ import { reactReduxFirebase } from 'react-redux-firebase';
 import logger from 'redux-logger';
 import * as firebase from 'firebase';
 import thunk from 'redux-thunk';
-import { routerReducer, routerMiddleware } from 'react-router-redux';
+import { routerMiddleware } from 'react-router-redux';
 import rootReducer from '../reducers';
 import coreMiddleware from '../middleware/core';
 
