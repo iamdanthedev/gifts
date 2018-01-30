@@ -1,40 +1,39 @@
 import React, { Component } from 'react';
 import './style.css';
-import LoggedBubble from '../../loggedBubble'
+import LoggedBubble from '../../loggedBubble';
 
-class LeftNav extends Component{
-
+class LeftNav extends Component {
   leftNavLinks = [
     {
-      'name': 'Register',
-      'id': '8',
-      'url': '/register'
+      name: 'Register',
+      id: '8',
+      url: '/register',
     },
     {
-      'name': 'My profile',
-      'id': '7',
-      'url': '/home'
+      name: 'My profile',
+      id: '7',
+      url: '/home',
     },
     {
-      'name': 'Friends',
-      'id': '3',
-      'url': '/friendsList'
+      name: 'Friends',
+      id: '3',
+      url: '/friendsList',
     },
     {
-      'name': 'Groups',
-      'id': '4',
-      'url': '/groupsList'
+      name: 'Groups',
+      id: '4',
+      url: '/groupsList',
     },
     {
-      'name': 'New group',
-      'id': '2',
-      'url': '/createGroup'
+      name: 'New group',
+      id: '2',
+      url: '/createGroup',
     },
     {
-      'name': 'Balances',
-      'id': '6',
-      'url': '/myBalances'
-    }
+      name: 'Balances',
+      id: '6',
+      url: '/myBalances',
+    },
   ];
 
   loginLinks = [
@@ -44,36 +43,40 @@ class LeftNav extends Component{
     //   'url': '/logout'
     // },
     {
-      'name': 'Sign In',
-      'id': '0',
-      'url': '/login'
-    }
-  ]
+      name: 'Sign In',
+      id: '0',
+      url: '/login',
+    },
+  ];
 
-  render(){
-    return(
+  render() {
+    return (
       <div className="flex-property left-navigation">
-          <ul>
-            <LoggedBubble />
-            
-            {this.leftNavLinks.map(function(object, i){
-              return(
-                <li key={i} className="flex-property flex-center">
-                  <a className="title-xs" href={object.url}>{object.name}</a>
-                </li>
-              )
-            })}
-          </ul>
+        <ul>
+          <LoggedBubble />
 
-          <ul>
-            {this.loginLinks.map(function(object, i){
-              return(
-                <li key={i} className="flex-property flex-center">
-                  <a className="title-xs" href={object.url}>{object.name}</a>
-                </li>
-              )
-            })}
-          </ul>
+          {this.leftNavLinks.map(function(object, i) {
+            return (
+              <li key={i} className="flex-property flex-center">
+                <a className="title-xs" href={object.url}>
+                  {object.name}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+
+        <ul>
+          {this.loginLinks.map(function(object, i) {
+            return (
+              <li key={i} className="flex-property flex-center">
+                <a className="title-xs" href={object.url}>
+                  {object.name}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     );
   }
