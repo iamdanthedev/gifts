@@ -20,8 +20,9 @@
   "devDependencies": {
     "firebase": "^4.8.2",
     "node-sass": "^4.7.2",
-    "sass-loader": "^6.0.6",
+    "prettier": "^1.10.2",
     "redux-devtools-extension": "^2.13.2",
+    "sass-loader": "^6.0.6",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.0"
   },
