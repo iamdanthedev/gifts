@@ -18,7 +18,7 @@ const createStoreWithFirebase = compose(reactReduxFirebase(firebase, config))(
   createStore,
 );
 
-const createStore = history => {
+export default history => {
   const middleware = [routerMiddleware(history), coreMiddleware, logger, thunk];
 
   return createStoreWithFirebase(
@@ -28,5 +28,3 @@ const createStore = history => {
     window.devToolsExtension ? window.devToolsExtension() : f => f,
   );
 };
-
-export default createStore;
