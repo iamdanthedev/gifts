@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import './style.css';
+import { Link } from 'react-router-dom';
 import LoggedBubble from '../../loggedBubble';
 
+import './style.css';
+
 class LeftNav extends Component {
+
   leftNavLinks = [
     {
       name: 'Register',
@@ -58,9 +61,9 @@ class LeftNav extends Component {
           {this.leftNavLinks.map(function(object, i) {
             return (
               <li key={i} className="flex-property flex-center">
-                <a className="title-xs" href={object.url}>
+                <Link className="title-xs" to={object.url}>
                   {object.name}
-                </a>
+                </Link>
               </li>
             );
           })}
@@ -70,9 +73,9 @@ class LeftNav extends Component {
           {this.loginLinks.map(function(object, i) {
             return (
               <li key={i} className="flex-property flex-center">
-                <a className="title-xs" href={object.url}>
+                <Link className="title-xs" to={object.url}>
                   {object.name}
-                </a>
+                </Link>
               </li>
             );
           })}
