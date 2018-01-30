@@ -15,9 +15,9 @@ const mapStateToProps = (state) => {
   }
 };
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({
+const mapDispatchToProps = (dispatch) => ({
   registerUser: asyncRegister,
-}, dispatch);
+} );
 
 
 
