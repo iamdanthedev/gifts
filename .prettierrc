@@ -1,0 +1,6 @@
+{
+  "print-width": 90,
+  "parser": "babylon",
+  "trailing-comma": "all",
+  "single-quote": true
+}
