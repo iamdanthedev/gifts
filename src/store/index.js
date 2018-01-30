@@ -3,6 +3,7 @@ import { reactReduxFirebase } from 'react-redux-firebase';
 import logger from 'redux-logger';
 import * as firebase from 'firebase';
 import thunk from 'redux-thunk';
+import { routerReducer, routerMiddleware } from 'react-router-redux';
 import rootReducer from '../reducers';
 import coreMiddleware from '../middleware/core';
 
@@ -17,13 +18,15 @@ const createStoreWithFirebase = compose(reactReduxFirebase(firebase, config))(
   createStore,
 );
 
-let middleware = [coreMiddleware, logger, thunk];
+const createStore = history => {
+  const middleware = [routerMiddleware(history), coreMiddleware, logger, thunk];
 
-let store = createStoreWithFirebase(
-  rootReducer,
-  {},
-  applyMiddleware(...middleware),
-  window.devToolsExtension ? window.devToolsExtension() : f => f,
-);
+  return createStoreWithFirebase(
+    rootReducer,
+    {},
+    applyMiddleware(...middleware),
+    window.devToolsExtension ? window.devToolsExtension() : f => f,
+  );
+};
 
-export default store;
+export default createStore;
