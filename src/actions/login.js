@@ -19,7 +19,7 @@ export const asyncLogin = (log_email, log_password) => async dispatch => {
     dispatch(replace('/profile'));
   }
   catch(e) {
-    dispatch(registerFailure(error.message));
+    dispatch(loginFail(e.message));
   }
 };
 
