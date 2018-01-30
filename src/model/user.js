@@ -14,5 +14,11 @@ export class User {
      * @type {string}
      */
     this.email = data.email;
+
+    /**
+     * User name
+     * @type {string}
+     */
+    this.username = data.username;
   }
 }
