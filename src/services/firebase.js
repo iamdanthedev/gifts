@@ -14,8 +14,8 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 
 const firebaseService = {
-  users: db.ref('/users'),
-  groups: db.ref('/groups'),
+  users: db.ref('users/'),
+  groups: db.ref('groups/'),
 };
 
 export default firebaseService;
