@@ -1,7 +1,8 @@
 import {createStore, compose, applyMiddleware} from 'redux';
 import { reactReduxFirebase } from 'react-redux-firebase';
-import rootReducer from '../reducers';
+import logger from 'redux-logger'
 import * as firebase from 'firebase'
+import rootReducer from '../reducers';
 import thunk from 'redux-thunk';
 
 // react-redux-firebase options
@@ -14,7 +15,7 @@ const createStoreWithFirebase = compose(
   reactReduxFirebase(firebase, config)
 )(createStore)
 
-let middlewares = [thunk]
+let middlewares = [logger, thunk]
 
 let store = createStoreWithFirebase(
   rootReducer,
