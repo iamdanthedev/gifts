@@ -4,6 +4,7 @@ import logger from 'redux-logger';
 import * as firebase from 'firebase';
 import thunk from 'redux-thunk';
 import rootReducer from '../reducers';
+import coreMiddleware from '../middleware/core';
 
 // react-redux-firebase options
 const config = {
@@ -16,7 +17,7 @@ const createStoreWithFirebase = compose(reactReduxFirebase(firebase, config))(
   createStore,
 );
 
-let middleware = [logger, thunk];
+let middleware = [coreMiddleware, logger, thunk];
 
 let store = createStoreWithFirebase(
   rootReducer,
