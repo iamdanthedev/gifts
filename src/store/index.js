@@ -21,7 +21,7 @@ let middleware = [logger, thunk];
 let store = createStoreWithFirebase(
   rootReducer,
   {},
-  applyMiddleware(...middlewares),
+  applyMiddleware(...middleware),
   window.devToolsExtension ? window.devToolsExtension() : f => f,
 );
 
