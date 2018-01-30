@@ -13,3 +13,5 @@ const coreMiddleware = ({ getState, dispatch }) => next => action => {
 
 
 };
+
+export default coreMiddleware;
