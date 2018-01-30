@@ -1,3 +1,14 @@
+#### sample .env file: ####
+- REACT_APP_FIREBASE_API_KEY=AIzaSyAgdZ_qtIo5PpLYRFnMddC6uYkRXpwyDAo
+- REACT_APP_FIREBASE_PROJECT_ID=gifts-c37a7
+- REACT_APP_FIREBASE_AUTH_DOMAIN=gifts-c37a7.firebaseio.com
+- REACT_APP_FIREBASE_DATABASE_URL=https://gifts-c37a7.firebaseio.com
+- REACT_APP_FIREBASE_BUCKET=dev
+- REACT_APP_FIREBASE_SENDER_ID
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 
