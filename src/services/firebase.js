@@ -10,6 +10,7 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+// firebase.database.enableLogging(false);
 
 const db = firebase.database();
 

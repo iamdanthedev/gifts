@@ -14,6 +14,8 @@ export const register = async (reg_email, reg_username, reg_pass) => {
       username: reg_username
     });
 
+    // await user.save();
+
     return user;
   }
   catch (e) {

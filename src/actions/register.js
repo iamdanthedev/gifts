@@ -1,3 +1,4 @@
+import { push } from 'react-router-redux';
 import { logout, register } from '../api/usersApi.js';
 
 export const registerUser = () => ({
@@ -6,12 +7,16 @@ export const registerUser = () => ({
 
 export const registerFailure = (code, message) => ({
   type: 'REGISTER_USER_FAILURE',
-  payload: { code, message }
+  payload: { code, message },
 });
 
-export const asyncRegister = (reg_email, reg_username, reg_pass) => (dispatch) => {
-
-  register(reg_email, reg_username, reg_pass)
-    .then(user => dispatch(registerUser()))
-    .catch(e => dispatch(registerFailure(e.code, e.message)));
+export const asyncRegister = (reg_email, reg_username, reg_pass) => async dispatch => {
+  try {
+    await register(reg_email, reg_username, reg_pass);
+    dispatch(registerUser());
+    dispatch(push('/profile'));
+  } catch (e) {
+    // TODO: log event
+    dispatch(registerFailure(e.code, e.message));
+  }
 };

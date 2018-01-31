@@ -8,7 +8,8 @@ const InviteFriends = props => (
     <form
       className="flex-property flex-center"
       onSubmit={e => {
-        this.handleSubmit();
+        props.onSubmit(props.email);
+        props.setEmail('');
         e.preventDefault();
       }}
     >
@@ -20,6 +21,7 @@ const InviteFriends = props => (
         autoComplete="off"
         placeholder="Enter friends email ..."
         onChange={e => props.setEmail(e.target.value)}
+        value={props.email}
       />
 
       <input className="button-font submit" type="submit" value="Invite" />
