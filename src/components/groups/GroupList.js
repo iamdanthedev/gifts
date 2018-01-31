@@ -14,6 +14,8 @@ const GroupList = ({ items }) => (
         balance={item.balance}
       />
     ))}
+
+    {items.length === 0 && <div>Empty here</div>}
   </div>
 );
 
