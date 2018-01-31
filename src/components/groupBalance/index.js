@@ -1,48 +1,41 @@
-import React, { Component } from 'react';
+import React from 'react';
+import P from 'prop-types';
+
 import './style.css';
 
-class GroupBalance extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      emailInvite: '',
-    };
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+const GroupBalance = props => (
+  <div className="balance-box white-box flex-property">
+    <div className="balance-part flex-property flex-center div-wrap">
+      <h5>Total</h5>
+      <h6>${props.total}</h6>
+      <p>
+        in <span>{props.totalGroups} groups</span>
+      </p>
+    </div>
+    <div className="balance-part flex-property flex-center div-wrap">
+      <h5>You owe</h5>
+      <h6>${props.credit}</h6>
+      <p>
+        in <span>{props.creditGroups} groups</span>
+      </p>
+    </div>
+    <div className="balance-part flex-property flex-center div-wrap">
+      <h5>You are owed</h5>
+      <h6>${props.debit}</h6>
+      <p>
+        in <span>{props.debitGroups} groups</span>
+      </p>
+    </div>
+  </div>
+);
 
-  onInviteChangeValue = e => this.setState({ emailInvite: e.target.value });
+GroupBalance.propTypes = {
+  total: P.number.isRequired,
+  totalGroups: P.number.isRequired,
+  credit: P.number.isRequired,
+  creditGroups: P.number.isRequired,
+  debit: P.number.isRequired,
+  debitGroups: P.number.isRequired
+};
 
-  handleSubmit(e) {
-    this.setState({ emailInvite: this.state.emailInvite });
-    console.log('Invite bar: Email: ' + this.state.emailInvite);
-  }
-
-  render() {
-    return (
-      <div className="balance-box white-box flex-property">
-        <div className="balance-part flex-property flex-center div-wrap">
-          <h5>Total</h5>
-          <h6>+9$</h6>
-          <p>
-            in <span>13 groups</span>
-          </p>
-        </div>
-        <div className="balance-part flex-property flex-center div-wrap">
-          <h5>You are owing</h5>
-          <h6>12$</h6>
-          <p>
-            in <span>13 groups</span>
-          </p>
-        </div>
-        <div className="balance-part flex-property flex-center div-wrap">
-          <h5>You are owed</h5>
-          <h6>21$</h6>
-          <p>
-            in <span>9 groups</span>
-          </p>
-        </div>
-      </div>
-    );
-  }
-}
 export default GroupBalance;
