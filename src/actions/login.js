@@ -14,7 +14,7 @@ export const loginFail = message => ({
 
 export const asyncLogin = (log_email, log_password) => async dispatch => {
   try {
-    await login(log_email, log_password);
+    await login(log_email.trim(), log_password.trim());
     dispatch(loginUser(log_email, log_password));
     dispatch(replace('/profile'));
   }
