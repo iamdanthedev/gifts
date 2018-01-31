@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { BrowserRouter } from 'react-router-dom';
-import { ConnectedRouter } from 'react-router-redux';
+import { BrowserRouter, Redirect, Route } from 'react-router-dom';
 import P from 'prop-types';
+
 import { asyncLogout } from './actions/login';
 import Routes from './routes/routes.js';
 import LeftNav from './components/layout/leftNav';
@@ -23,6 +23,12 @@ class App extends Component {
                 isSignedIn={this.props.isSignedIn}
                 username={this.props.username ? this.props.username.split('@')[0] : ''}
               />
+
+              {!this.props.isSignedIn && (
+                <Route path="/" exact>
+                  <Redirect to="/login" push />
+                </Route>
+              )}
 
               <Routes logout={this.props.asyncLogout} />
             </React.Fragment>
