@@ -3,6 +3,11 @@ import { compose, setPropTypes } from 'recompose';
 import P from 'prop-types';
 import { firebaseConnect } from 'react-redux-firebase';
 
+/**
+ * Queries a single groups
+ * expects props.id
+ * passes props.group down
+ */
 export default compose(
   setPropTypes({
     id: P.string.isRequired,
@@ -17,6 +22,6 @@ export default compose(
   })),
 );
 
-export const groupQueryPropTypes = {
+export const groupQueryWrappedTypes = {
   group: P.object()
 };
