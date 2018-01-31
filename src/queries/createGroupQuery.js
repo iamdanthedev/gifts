@@ -15,6 +15,7 @@ export default compose(
 
       return props.firebase.push('groups', {
         ...group,
+        date: group.date ? group.date.valueOf() : Date.now(),
         cost: parseFloat(group.cost),
         owner: props.uid
       });
