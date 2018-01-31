@@ -7,12 +7,12 @@ import { userIsAuthenticated } from '../utils/userIsAuthenticated';
 
 import LoginForm from '../containers/Login';
 import Register from '../containers/Register';
-import CreateGroup from '../containers/create_group/CreateGroup';
-import Groups from '../containers/Groups';
+import CreateGroup from '../containers/groups/CreateGroup';
+import Group from '../containers/groups/Group';
+import Groups from '../containers/groups/Groups';
 import Profile from '../containers/Profile';
 
 import ContainerFriends from '../components/friends/containerFriends';
-import GroupDetails from '../components/groups/groupDetails';
 
 /*
     All routes go here.
@@ -36,7 +36,7 @@ export default ({ isSignedIn, logout }) => (
         <Route path="/friendsList" component={userIsAuthenticated(ContainerFriends)} />
         <Route path="/groups" component={userIsAuthenticated(Groups)} />
         <Route path="/group/new" component={userIsAuthenticated(CreateGroup)} />
-        <Route path="/group/:id" component={userIsAuthenticated(GroupDetails)} />
+        <Route path="/group/:id" component={userIsAuthenticated(Group)} />
 
         <Redirect to="/login" from="/" />
       </Switch>

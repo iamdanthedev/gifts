@@ -14,22 +14,29 @@ const InviteFriends = props => (
       }}
     >
       <input
-        id="searchBar"
-        type="email"
-        className="floated"
-        required
         autoComplete="off"
-        placeholder="Enter friends email ..."
+        className="floated"
+        disabled={props.disabled}
+        id="searchBar"
         onChange={e => props.setEmail(e.target.value)}
+        placeholder="Enter friends email ..."
+        required
+        type="email"
         value={props.email}
       />
 
-      <input className="button-font submit" type="submit" value="Invite" />
+      <input
+        className="button-font submit"
+        disabled={props.disabled}
+        type="submit"
+        value="Invite"
+      />
     </form>
   </div>
 );
 
 InviteFriends.propTypes = {
+  disabled: P.bool,
   email: P.string,
   setEmail: P.func.isRequired,
   onSubmit: P.func.isRequired,

@@ -2,7 +2,7 @@ import React from 'react';
 import P from 'prop-types';
 import './style.css';
 
-const FriendBox = ({ name, email, onAdd }) => (
+const FriendBox = ({ name, email, onAdd, onRemove }) => (
   <div className="one-friend flex-property">
     <div className="friend-status color-owes" />
 
@@ -15,6 +15,10 @@ const FriendBox = ({ name, email, onAdd }) => (
       {onAdd && (
         <a className="add-friend" onClick={onAdd}>+</a>
       )}
+
+      {onRemove && (
+        <a className="add-friend" onClick={onRemove}>&ndash;</a>
+      )}
     </div>
   </div>
 );
@@ -24,6 +28,7 @@ FriendBox.propTypes = {
   name: P.string.isRequired,
   email: P.string.isRequired,
   onAdd: P.func,
+  onRemove: P.func,
 };
 
 export default FriendBox;

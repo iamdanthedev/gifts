@@ -1,4 +1,3 @@
-import { connect } from 'react-redux';
 import { withFirebase } from 'react-redux-firebase';
 import { compose, withProps } from 'recompose';
 import withUid from '../utils/withUid';

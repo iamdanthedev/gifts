@@ -16,7 +16,7 @@ const GroupBox = props => {
       : 'clear';
 
   const str = balance < 0
-    ? `You owe $${balance}`
+    ? `You owe $${Math.abs(balance)}`
     : balance > 0
       ? `You are owed $${balance}`
       : 'Balance cleared';

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { compose, setPropTypes } from 'recompose';
 import P from 'prop-types';
-import { firebaseConnect } from 'react-redux-firebase';
+import { firebaseConnect, getVal } from 'react-redux-firebase';
 
 /**
  * Queries a single groups
@@ -23,5 +23,5 @@ export default compose(
 );
 
 export const groupQueryWrappedTypes = {
-  group: P.object()
+  group: P.object
 };
