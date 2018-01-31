@@ -1,4 +1,3 @@
-
 export const initialValues = {
   name: '',
   desc: '',
@@ -58,7 +57,7 @@ export const removeFriend = (email, form) =>
 export const getGroupBalance = (group, uid) => {
 
   const parties = group.friends.length + 1; // number of invited people plus the owner
-  const share = group.cost / parties;
+  const share = Math.round(group.cost / parties * 100) / 100;
 
   // balance is negative if we owe, positive if they owe us
   return group.settled

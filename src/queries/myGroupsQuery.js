@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import P from 'prop-types';
 import { firebaseConnect, getVal, withFirebase } from 'react-redux-firebase';
 import { compose, withProps } from 'recompose';
 import withUid from '../utils/withUid';
@@ -35,3 +36,7 @@ export default compose(
     };
   }),
 );
+
+export const myGroupsQueryProps = {
+  groups: P.arrayOf(P.object)
+};

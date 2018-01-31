@@ -13,8 +13,8 @@ const Profile = props => {
   return (
     <Layout>
       <InviteFriends />
-      <BalanceBox />
-      <Groups />
+      {/*<BalanceBox />*/}
+      <Groups showTotalBalance />
       <Friends />
     </Layout>
   );

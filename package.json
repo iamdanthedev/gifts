@@ -20,7 +20,8 @@
     "redux": "^3.7.2",
     "redux-auth-wrapper": "^2.0.2",
     "redux-history": "^1.0.2",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "round-to": "^2.0.0"
   },
   "devDependencies": {
     "firebase": "^4.8.2",
