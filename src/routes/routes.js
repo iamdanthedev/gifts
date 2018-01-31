@@ -8,8 +8,8 @@ import LoginForm from '../containers/Login';
 import Register from '../containers/Register';
 import CreateGroup from '../containers/create_group/CreateGroup';
 import Groups from '../containers/Groups';
+import Profile from '../containers/Profile';
 
-import Profile from '../components/profile';
 import ContainerFriends from '../components/friends/containerFriends'
 import GroupDetails from '../components/groups/groupDetails'
 
