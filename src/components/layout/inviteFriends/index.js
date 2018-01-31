@@ -1,43 +1,36 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { compose, withState } from 'recompose';
+import P from 'prop-types';
 import './style.css';
 
-class InviteFriends extends Component{
-  constructor(props) {
-		super(props);
-		this.state = {
-			emailInvite: ''
-		};
-		this.handleSubmit = this.handleSubmit.bind(this);
-	}
+const InviteFriends = props => (
+  <div className="invite-bar white-box flex-property">
+    <form
+      className="flex-property flex-center"
+      onSubmit={e => {
+        this.handleSubmit();
+        e.preventDefault();
+      }}
+    >
+      <input
+        id="searchBar"
+        type="email"
+        className="floated"
+        required
+        autoComplete="off"
+        placeholder="Enter friends email ..."
+        onChange={e => props.setEmail(e.target.value)}
+      />
 
-  onInviteChangeValue = e => this.setState({emailInvite: e.target.value});
+      <input className="button-font submit" type="submit" value="Invite" />
+    </form>
+  </div>
+);
 
-  handleSubmit(e) {
-		this.setState({emailInvite: this.state.emailInvite});
-		console.log('Invite bar: Email: ' + this.state.emailInvite);
-	}
+InviteFriends.propTypes = {
+  email: P.string,
+  setEmail: P.func.isRequired,
+  onSubmit: P.func.isRequired,
+};
 
-  render(){
-    return(
-      <div className="invite-bar white-box flex-property">
-        <form className="flex-property flex-center" onSubmit={(e) => {
-  					this.handleSubmit();
-  					e.preventDefault();
-  				}}>
-
-          <input
-            id="searchBar"
-            type="email"
-            className='floated'
-            required
-            autoComplete='off'
-            placeholder="Enter friends email ..."
-            onChange={this.onInviteChangeValue}
-          />
-          <input className="button-font submit" type="submit" value="Invite"/>
-        </form>
-      </div>
-    )
-  }
-}
-export default InviteFriends;
+export default compose(withState('email', 'setEmail', ''))(InviteFriends);
