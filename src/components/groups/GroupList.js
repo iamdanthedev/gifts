@@ -24,7 +24,7 @@ GroupList.propTypes = {
     id: P.string.isRequired,
     name: P.string.isRequired,
     // status: P.oneOf(['owe', 'owes', 'clear']).isRequired,
-    balance: P.string.isRequired
+    balance: P.number.isRequired
   }))
 };
 

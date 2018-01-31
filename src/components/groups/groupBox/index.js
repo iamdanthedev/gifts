@@ -37,7 +37,7 @@ const GroupBox = props => {
 };
 
 GroupBox.propTypes = {
-  balance: P.string.isRequired,
+  balance: P.number.isRequired,
   date: P.instanceOf(Date),
   id: P.string.isRequired,
   name: P.string.isRequired,
