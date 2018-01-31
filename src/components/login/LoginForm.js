@@ -23,13 +23,13 @@ const Login = props => {
               <div className="form-input-elements">
                 <CustomInput
                   placeholder="Enter email"
-                  onChange={props.setEmail}
+                  onChange={e => props.setEmail(e.target.value)}
                   value={props.email}
                 />
 
                 <CustomInput
                   placeholder="Enter password"
-                  onChange={props.setPass}
+                  onChange={e => props.setPass(e.target.value)}
                   value={props.pass}
                 />
               </div>

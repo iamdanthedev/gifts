@@ -27,7 +27,7 @@ export default compose(
       .filter(
         group =>
           group.owner === firebase.auth.uid ||
-          group.members.includes(firebase.auth.email),
+          group.friends.includes(firebase.auth.email),
       );
 
     return {

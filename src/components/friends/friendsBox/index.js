@@ -12,9 +12,9 @@ const FriendBox = ({ name, email, onAdd }) => (
     </div>
 
     <div className="flex-center flex-property">
-      <a className="add-friend" onClick={onAdd}>
-        +
-      </a>
+      {onAdd && (
+        <a className="add-friend" onClick={onAdd}>+</a>
+      )}
     </div>
   </div>
 );
@@ -23,7 +23,7 @@ FriendBox.propTypes = {
   status: P.string, // TODO: status is not being used in any way at the moment
   name: P.string.isRequired,
   email: P.string.isRequired,
-  onAdd: P.func.isRequired,
+  onAdd: P.func,
 };
 
 export default FriendBox;
