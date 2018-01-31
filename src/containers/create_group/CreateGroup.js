@@ -1,23 +1,34 @@
 import React from 'react';
 import { compose } from 'redux';
+import { push } from 'react-router-redux';
 import { initialValues, validate } from './formUtils';
 import createGroupQuery from '../../queries/createGroupQuery';
 import CreateGroupForm from '../../components/groups/createGroup';
+import { connect } from 'react-redux';
 
 const CreateGroup = props => {
+
+  const { dispatch } = props;
+
   return <CreateGroupForm
     friends={friendsList}
     initialValues={initialValues}
     validate={validate}
     onSubmit={(values, { setSubmitting, setErrors, formProps }) => {
       props.createGroup(values)
-        .then(() => setSubmitting(false))
+        .then(() => {
+          setSubmitting(false);
+          dispatch(push('/home'));
+        })
         .catch(e => setErrors());
     }}
   />;
 };
 
-export default compose(createGroupQuery)(CreateGroup);
+export default compose(
+  connect(),
+  createGroupQuery
+)(CreateGroup);
 
 const friendsList = [
   {

@@ -5,7 +5,10 @@ import { connectedRouterRedirect } from 'redux-auth-wrapper/history4/redirect';
  */
 export const userIsAuthenticated = connectedRouterRedirect({
   redirectPath: '/login',
-  authenticatedSelector: s => Boolean(s.firebase.auth.uid),
-  wrapperDisplayName: 'UserIsAuthenticated'
+  authenticatedSelector: s => {
+    const result = Boolean(s.firebase.auth.uid);
+    console.log('USER_IS_AUTHENTICATED', result);
+    return result;
+  },
+  wrapperDisplayName: 'UserIsAuthenticated',
 });
-

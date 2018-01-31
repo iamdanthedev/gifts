@@ -1,5 +1,5 @@
 import { login, logout } from '../api/usersApi.js';
-import { replace } from 'react-router-redux';
+import { replace, push } from 'react-router-redux';
 
 export const loginUser = (log_email, log_password) => ({
   type: 'LOGIN_USER',
@@ -16,7 +16,7 @@ export const asyncLogin = (log_email, log_password) => async dispatch => {
   try {
     await login(log_email.trim(), log_password.trim());
     dispatch(loginUser(log_email, log_password));
-    dispatch(replace('/profile'));
+    dispatch(replace('/home'));
   }
   catch(e) {
     dispatch(loginFail(e.message));
