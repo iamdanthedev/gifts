@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, Route } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import { userIsAuthenticated } from '../utils/userIsAuthenticated';
 
 /* Import all page components here */
@@ -18,19 +18,24 @@ import GroupDetails from '../components/groups/groupDetails'
     All routes go here.
  */
 
-export default ({ logout }) => (
+export default ({ isSignedIn, logout }) => (
   <div className="page-content">
-    <Route path="/login" component={Login}></Route>
-    <Route path="/logout" render={() => {
-      logout();
-      return <Redirect to="/login" />;
-    }} />
-    <Route path="/register" component={Register}></Route>
+    <Switch>
 
-    <Route path="/home" component={userIsAuthenticated(Profile)}></Route>
-    <Route path="/friendsList" component={userIsAuthenticated(ContainerFriends)}></Route>
-    <Route path="/groupsList" component={userIsAuthenticated(ContainerGroups)}></Route>
-    <Route path="/createGroup" component={userIsAuthenticated(CreateGroup)}></Route>
-    <Route path="/groupDetails" component={userIsAuthenticated(GroupDetails)}></Route>
+      <Route path="/login" component={Login}/>
+      <Route path="/logout" render={() => {
+        logout();
+        return <Redirect to="/login" />;
+      }} />
+      <Route path="/register" component={Register}/>
+
+      <Route path="/home" component={userIsAuthenticated(Profile)}/>
+      <Route path="/friendsList" component={userIsAuthenticated(ContainerFriends)}/>
+      <Route path="/groupsList" component={userIsAuthenticated(ContainerGroups)}/>
+      <Route path="/createGroup" component={userIsAuthenticated(CreateGroup)}/>
+      <Route path="/groupDetails" component={userIsAuthenticated(GroupDetails)}/>
+
+      <Redirect to="/login" from="/" />
+    </Switch>
   </div>
 );

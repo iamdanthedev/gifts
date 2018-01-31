@@ -14,26 +14,23 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="page">
-          {this.props.isLoading && <Loader />}
+        <Route>
+          <div className="page">
+            {this.props.isLoading && <Loader />}
 
-          {!this.props.isLoading && (
-            <React.Fragment>
-              <LeftNav
-                isSignedIn={this.props.isSignedIn}
-                username={this.props.username ? this.props.username.split('@')[0] : ''}
-              />
+            {!this.props.isLoading && (
+              <React.Fragment>
+                <LeftNav
+                  isSignedIn={this.props.isSignedIn}
+                  username={this.props.username ? this.props.username.split('@')[0] : ''}
+                />
 
-              {!this.props.isSignedIn && (
-                <Route path="/" exact>
-                  <Redirect to="/login" push />
-                </Route>
-              )}
 
-              <Routes logout={this.props.asyncLogout} />
-            </React.Fragment>
-          )}
-        </div>
+                <Routes isSignedIn={this.props.isSignedIn} logout={this.props.asyncLogout} />
+              </React.Fragment>
+            )}
+          </div>
+        </Route>
       </BrowserRouter>
     );
   }
