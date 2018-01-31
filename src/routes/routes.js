@@ -4,7 +4,7 @@ import { userIsAuthenticated } from '../utils/userIsAuthenticated';
 
 /* Import all page components here */
 
-import Login from '../containers/Login';
+import LoginForm from '../containers/Login';
 import Register from '../containers/Register';
 import CreateGroup from '../containers/create_group/CreateGroup';
 import Groups from '../containers/Groups';
@@ -21,7 +21,7 @@ export default ({ isSignedIn, logout }) => (
   <div className="page-content">
     <Switch>
 
-      <Route path="/login" component={Login}/>
+      <Route path="/login" component={LoginForm}/>
       <Route path="/logout" render={() => {
         logout();
         return <Redirect to="/login" />;

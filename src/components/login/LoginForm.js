@@ -1,7 +1,8 @@
 import React from 'react';
-import { withState } from 'recompose';
+import { compose, withState } from 'recompose';
+import { Link } from 'react-router-dom';
 import P from 'prop-types';
-import CustomInput from './customInput';
+import CustomInput from '../customInput';
 
 import './style.css';
 

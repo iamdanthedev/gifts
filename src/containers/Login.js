@@ -1,25 +1,21 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
-import Login from '../components/login';
-
-
 import { asyncLogin } from '../actions/login.js';
-import { withRouter } from 'react-router'
-// import store from '../store';
+import Form from '../components/login/LoginForm';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-    users : state.users
-  }
+    users: state.users,
+  };
 };
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({
-  login: asyncLogin,
-}, dispatch);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      login: asyncLogin,
+    },
+    dispatch,
+  );
 
+export default connect(mapStateToProps, mapDispatchToProps)(Form);
 
-
-const LoginRouter = withRouter(connect(mapStateToProps, mapDispatchToProps)(Login))
-
-export default LoginRouter
