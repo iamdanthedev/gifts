@@ -34,9 +34,9 @@ export default ({ isSignedIn, logout }) => (
 
         <Route path="/home" component={userIsAuthenticated(Profile)} />
         <Route path="/friendsList" component={userIsAuthenticated(ContainerFriends)} />
-        <Route path="/groupsList" component={userIsAuthenticated(Groups)} />
-        <Route path="/createGroup" component={userIsAuthenticated(CreateGroup)} />
-        <Route path="/groupDetails" component={userIsAuthenticated(GroupDetails)} />
+        <Route path="/groups" component={userIsAuthenticated(Groups)} />
+        <Route path="/group/new" component={userIsAuthenticated(CreateGroup)} />
+        <Route path="/group/:id" component={userIsAuthenticated(GroupDetails)} />
 
         <Redirect to="/login" from="/" />
       </Switch>

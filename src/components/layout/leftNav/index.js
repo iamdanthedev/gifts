@@ -27,13 +27,13 @@ const leftNavLinks = [
   {
     name: 'Groups',
     id: '4',
-    url: '/groupsList',
+    url: '/groups',
     protected: true,
   },
   {
     name: 'New group',
     id: '2',
-    url: '/createGroup',
+    url: '/group/new',
     protected: true,
   },
   {
