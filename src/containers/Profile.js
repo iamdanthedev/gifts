@@ -1,6 +1,4 @@
 import React from 'react';
-import P from 'prop-types';
-import { connect } from 'react-redux';
 import { compose } from 'recompose';
 
 import Layout from '../components/profile/ProfileLayout';
@@ -11,8 +9,6 @@ import addFriendsQuery, { addFriendsQueryProps } from '../queries/addFriendsQuer
 
 
 const Profile = props => {
-
-  const { dispatch } = props;
 
   return (
     <Layout>
