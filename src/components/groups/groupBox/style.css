@@ -74,3 +74,10 @@
   text-align: right;
   color: #313246;
 }
+
+.group-delete {
+  cursor: pointer;
+  flex: 0 0 2rem;
+  justify-content: flex-end;
+  display: flex;
+}

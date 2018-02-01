@@ -12,6 +12,7 @@ import Message from '../../components/Message';
 import Friends from '../../components/friends/containerFriends'
 import userQuery from '../../queries/userQuery';
 import allUsersQuery, { allUsersQueryProps } from '../../queries/allUsersQuery';
+import deleteGroupQuery, { deleteGroupQueryProps } from '../../queries/deleteGroupQuery';
 
 /**
  * Disclaimer: all this functionality should be done differently
@@ -33,8 +34,12 @@ const Groups = props => {
     }))
     .filter(g => g.friendsLeft ? !g.friendsLeft.includes(props.myEmail) : true)
 
-    // date from timestamp
-    .map(g => ({ ...g, date: new Date(g.date) }))
+    // date from timestamp and isowner
+    .map(g => ({
+      ...g,
+      date: new Date(g.date),
+      isOwner: g.owner === props.uid
+    }))
 
     // add status and amount per group
     .map(g => {
@@ -147,7 +152,7 @@ const Groups = props => {
       )}
 
       {!props.hideGroups && (
-        <GroupList items={groups} />
+        <GroupList items={groups} onRemove={gid => props.deleteGroup(gid)} />
       )}
 
 
@@ -162,6 +167,7 @@ Groups.propTypes = {
   ...myGroupsQueryProps,
   ...withUidProps,
   ...allUsersQueryProps,
+  ...deleteGroupQueryProps,
   hideGroups: P.bool,
   showTotalBalance: P.bool,
   showFriends: P.bool,
@@ -177,6 +183,7 @@ export default compose(
   myGroupsQuery,
   allUsersQuery,
   userQuery({ userIdPropName: 'uid', outPropName: 'me' }),
+  deleteGroupQuery,
   connect(s => ({
     myEmail: s.firebase.auth.email
   }))

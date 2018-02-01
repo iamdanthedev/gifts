@@ -2,7 +2,7 @@ import React from 'react';
 import P from 'prop-types';
 import GroupBox from './groupBox';
 
-const GroupList = ({ items }) => (
+const GroupList = ({ items, onRemove }) => (
   <div className="max-w groups white-box flex-property div-wrap">
     {items.map(item => (
       <GroupBox
@@ -12,6 +12,7 @@ const GroupList = ({ items }) => (
         // status={item.status}
         name={item.name}
         balance={item.balance}
+        onRemove={item.isOwner ? onRemove : null}
       />
     ))}
 
@@ -28,6 +29,7 @@ GroupList.propTypes = {
       balance: P.number.isRequired,
     }),
   ),
+  onRemove: P.func,
 };
 
 export default GroupList;
