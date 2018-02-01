@@ -9,6 +9,7 @@ import Layout from '../components/profile/ProfileLayout';
 import Groups from './groups/Groups';
 
 import InviteFriends from '../components/layout/inviteFriends'
+import addFriendsQuery, { addFriendsQueryProps } from '../queries/addFriendsQuery';
 
 
 const Profile = props => {
@@ -17,7 +18,7 @@ const Profile = props => {
 
   return (
     <Layout>
-      <InviteFriends onSubmit={email => dispatch(asyncInviteFriend(email))} />
+      <InviteFriends onSubmit={email => props.addFriends([email])} />
       <Groups showTotalBalance showFriends />
     </Layout>
   );
@@ -25,9 +26,11 @@ const Profile = props => {
 };
 
 Profile.propTypes = {
+  ...addFriendsQueryProps,
   inviteFriend: P.func.isRequired,
 };
 
 export default compose(
+  addFriendsQuery,
   connect()
 )(Profile);

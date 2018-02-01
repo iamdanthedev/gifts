@@ -66,6 +66,10 @@ const Groups = props => {
 
   const friends = {};
 
+  if (props.me && props.me.friends) {
+    props.me.friends.forEach(f => friends[f] = 0);
+  }
+
   groups.forEach(g => {
 
     const share = g.cost / (g.friends.length + 1);
@@ -150,6 +154,7 @@ Groups.propTypes = {
   showTotalBalance: P.bool,
   showFriends: P.bool,
   myEmail: P.string,
+  me: P.object, // my profile
 };
 
 export default compose(
@@ -157,7 +162,7 @@ export default compose(
   withUid,
   myGroupsQuery,
   allUsersQuery,
-  userQuery({ userIdPropName: 'propsUid', outPropName: 'me' }),
+  userQuery({ userIdPropName: 'uid', outPropName: 'me' }),
   connect(s => ({
     myEmail: s.firebase.auth.email
   }))

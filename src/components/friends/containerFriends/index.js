@@ -19,7 +19,7 @@ const Friends = ({ friends }) => {
 };
 
 Friends.propTypes = {
-  friends: P.arrayOf(FriendBox.propTypes).isRequired
+  friends: P.arrayOf(FriendBox.propTypes)
 };
 
 export default Friends;
