@@ -3,8 +3,6 @@ import P from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 
-import { asyncInviteFriend } from '../actions/friends';
-
 import Layout from '../components/profile/ProfileLayout';
 import Groups from './groups/Groups';
 
@@ -27,10 +25,8 @@ const Profile = props => {
 
 Profile.propTypes = {
   ...addFriendsQueryProps,
-  inviteFriend: P.func.isRequired,
 };
 
 export default compose(
   addFriendsQuery,
-  connect()
 )(Profile);
