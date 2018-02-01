@@ -77,14 +77,14 @@ export const settleAll = form => {
 export const getGroupBalance = (group, uid, myEmail) => {
 
   const parties = group.friends.length + 1; // number of invited people plus the owner
-  const share = Math.round(group.cost / parties * 100) / 100;
+  const share = group.cost / parties; // Math.round(group.cost / parties * 100) / 100;
   const numSettled = group.settledFriends ? group.settledFriends.length : 0;
 
   // balance is negative if we owe, positive if they owe us
   return group.settled
     ? 0
     : group.owner === uid
-      ? group.cost - share - share * numSettled
+      ? group.cost - group.cost / parties * (numSettled + 1)
       : myEmail
         ? group.settledFriends && group.settledFriends.includes(myEmail) ? 0 : -1 * share
         : -1 * share;
