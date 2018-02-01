@@ -3,6 +3,9 @@ import { compose } from 'recompose';
 import P from 'prop-types';
 import { firebaseConnect } from 'react-redux-firebase';
 
+/**
+ * Passes all users profiles to props.allUsers
+ */
 export default compose(
 
   firebaseConnect(props => {

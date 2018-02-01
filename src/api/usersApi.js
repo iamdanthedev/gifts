@@ -55,34 +55,3 @@ export const logout = async () => {
   await firebase.auth().signOut();
 };
 
-/**
- * Adds a friend by email to user's profile
- * @param emails
- * @returns {Promise<void>}
- */
-export const addFriend = async emails => {
-  if (!firebase.auth().currentUser) {
-    return Promise.reject('User is not signed in');
-  }
-
-  try {
-    const uid = firebase.auth().currentUser.uid;
-
-    const existingFriendsRef = await firebase
-      .database()
-      .ref(`users/${uid}/friends`)
-      .once('value');
-
-    const existingFriends = existingFriendsRef.val();
-
-    const friends = uniq([...existingFriends, ...emails]);
-
-    await firebase
-      .database()
-      .ref(`users/${uid}/friends`)
-      .set(friends);
-
-  } catch (e) {
-    return Promise.reject(e);
-  }
-};

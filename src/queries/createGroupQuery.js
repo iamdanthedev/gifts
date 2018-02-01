@@ -1,7 +1,11 @@
+import P from 'prop-types';
 import { withFirebase } from 'react-redux-firebase';
 import { compose, withProps } from 'recompose';
 import withUid from '../utils/withUid';
 
+/**
+ * Creates a new group.
+ */
 export default compose(
   withFirebase,
 
@@ -22,3 +26,7 @@ export default compose(
     }
   }))
 );
+
+export const createGroupQueryProps = {
+  createGroup: P.func.isRequired
+};

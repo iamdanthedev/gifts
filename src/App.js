@@ -15,7 +15,6 @@ import { withRouter } from 'react-router';
 
 class App extends Component {
   render() {
-    console.log('IS_SIGNED_IN', this.props.isSignedIn);
 
     return (
       <ConnectedRouter history={this.props.history}>

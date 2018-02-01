@@ -2,6 +2,9 @@ import P from 'prop-types';
 import { withFirebase } from 'react-redux-firebase';
 import { compose, withProps } from 'recompose';
 
+/**
+ * Passes a function to props.updateGroup to update group info
+ */
 export default compose(
   withFirebase,
 

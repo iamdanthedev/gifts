@@ -1,3 +1,7 @@
+## Environment requirement ##
+
+To start the project a `.env` file must be placed in the root folder.
+
 #### sample .env file: ####
 - REACT_APP_FIREBASE_API_KEY=AIzaSyAgdZ_qtIo5PpLYRFnMddC6uYkRXpwyDAo
 - REACT_APP_FIREBASE_PROJECT_ID=gifts-c37a7
@@ -5,6 +9,24 @@
 - REACT_APP_FIREBASE_DATABASE_URL=https://gifts-c37a7.firebaseio.com
 - REACT_APP_FIREBASE_BUCKET=dev
 - REACT_APP_FIREBASE_SENDER_ID
+
+## Project Structure ##
+
+- `/actions`: redux actions by categories
+- `/api/usersApi`: basic firebase auth interactions used in redux actions 
+- `/components`: presentation components built upon react stateless components patters
+- `/containers`: connected to redux-store
+- `/middleware/core.js`: middleware to intercept react-redux-firebase action. deals with website loadings status
+- `/queries`: firebase hoc queries, which we suppy to containers. names correspond with their functionality
+- `/reducers`: redux reducers
+- `/routes/routes.js`: the only routing file
+- `/services/firebase`: exports a `initFirebase` function which starts up firebase
+- `/store/index`: redux store is set up here
+- `/utils`: a couple of small handeful utils
+
+
+
+
 
 
 

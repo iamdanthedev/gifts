@@ -3,6 +3,12 @@ import { compose, setPropTypes } from 'recompose';
 import P from 'prop-types';
 import { firebaseConnect, getVal } from 'react-redux-firebase';
 
+/**
+ * Extracts a user's profile. expects props.id, props.email or custom
+ * propname 'userIdPropName'.
+ *
+ * Passes user info to props.user by default
+ */
 export default ({ userIdPropName, outPropName = 'user' }) => compose(
 
   firebaseConnect(props => {

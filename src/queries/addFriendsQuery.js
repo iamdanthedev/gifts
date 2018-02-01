@@ -5,7 +5,7 @@ import uniq from 'lodash.uniq';
 import withUid from '../utils/withUid';
 
 /**
- * Add friends to currect users. Expects array of friends as an argument
+ * Add friends to current users. Expects array of friends as an argument
  */
 export default compose(
   withFirebase,

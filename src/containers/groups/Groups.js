@@ -13,8 +13,10 @@ import Friends from '../../components/friends/containerFriends'
 import userQuery from '../../queries/userQuery';
 import allUsersQuery, { allUsersQueryProps } from '../../queries/allUsersQuery';
 
+/**
+ * Disclaimer: all this functionality should be done differently
+ */
 const Groups = props => {
-  console.log('Groups Container', props);
 
   /**
    * Prepare groups list
