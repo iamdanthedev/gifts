@@ -59,7 +59,7 @@ const Groups = props => {
   const debitGroups = groups.filter(g => g.balance > 0).length;
 
   const total = credit + debit;
-  const totalGroups = groups.length;
+  const totalGroups = creditGroups + debitGroups;
 
 
   /**
