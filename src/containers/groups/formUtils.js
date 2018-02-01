@@ -57,21 +57,36 @@ export const settleFriend = (email, form) => {
   form.setFieldValue('settledFriends', settled);
 };
 
+export const unsettleFriend = (email, form) => {
+  const allSettled = form.values.settledFriends || [];
+  const settled = allSettled.filter(s => s !== email);
+  form.setFieldValue('settledFriends', settled);
+};
+
+export const settleAll = form => {
+  const allSettled = form.values.settledFriends || [];
+  const settled = uniq([ ...allSettled, ...form.values.friends ]);
+  form.setFieldValue('settledFriends', settled);
+};
+
 /**
  * Calculates users balance in a given group
  * @param group
  * @param uid
  */
-export const getGroupBalance = (group, uid) => {
+export const getGroupBalance = (group, uid, myEmail) => {
 
   const parties = group.friends.length + 1; // number of invited people plus the owner
   const share = Math.round(group.cost / parties * 100) / 100;
+  const numSettled = group.settledFriends ? group.settledFriends.length : 0;
 
   // balance is negative if we owe, positive if they owe us
   return group.settled
     ? 0
     : group.owner === uid
-      ? group.cost - share
-      : -1 * share;
+      ? group.cost - share - share * numSettled
+      : myEmail
+        ? group.settledFriends && group.settledFriends.includes(myEmail) ? 0 : -1 * share
+        : -1 * share;
 
 };

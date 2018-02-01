@@ -2,7 +2,7 @@ import React from 'react';
 import P from 'prop-types';
 import './style.css';
 
-const FriendBox = ({ isSettled, name, email, onAdd, onRemove, onSettle, status }) => (
+const FriendBox = ({ isSettled, name, email, onAdd, onRemove, onSettle, onUnsettle, status }) => (
   <div className="one-friend flex-property">
     <div className={`friend-status color-${status}`} />
 
@@ -13,9 +13,15 @@ const FriendBox = ({ isSettled, name, email, onAdd, onRemove, onSettle, status }
 
     <div className="friend-spacer" />
 
-    {!isSettled && (
+    {!isSettled && onSettle && (
       <div className="friend-settle flex-center flex-property">
         <a className="add-friend yellow-button" onClick={onSettle}>Settle</a>
+      </div>
+    )}
+
+    {isSettled && onUnsettle && (
+      <div className="friend-settle flex-center flex-property">
+        <a className="add-friend yellow-button" onClick={onUnsettle}>Unsettle</a>
       </div>
     )}
 
@@ -33,7 +39,8 @@ const FriendBox = ({ isSettled, name, email, onAdd, onRemove, onSettle, status }
 
 FriendBox.propTypes = {
   isSettled: P.bool,
-  onSettle: P.func.isRequired,
+  onSettle: P.func,
+  onUnsettle: P.func,
   email: P.string.isRequired,
   name: P.string.isRequired,
   onAdd: P.func,

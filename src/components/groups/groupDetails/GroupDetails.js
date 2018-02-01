@@ -19,7 +19,7 @@ const GroupDetails = props => (
     <div className="details-content white-box">
       <h4>{props.values.name}</h4>
 
-      <SimpleBalance balance={props.values.balance} />
+      <SimpleBalance balance={props.getBalance()} />
 
       <div className="group-detail-info">
         <div className="desc flex-property column-orient">
@@ -48,7 +48,8 @@ const GroupDetails = props => (
             props.values.friends.map(friend => (
               <FriendBox
                 isSettled={props.values.settledFriends.includes(friend)}
-                onSettle={() => props.onFriendSettle(friend)}
+                onSettle={props.isOwner ? () => props.onFriendSettle(friend) : null}
+                onUnsettle={props.isOwner ? () => props.onFriendUnsettle(friend) : null}
                 key={friend}
                 email={friend}
                 onRemove={
@@ -59,7 +60,9 @@ const GroupDetails = props => (
                 status={
                   props.isOwner
                     ? props.values.settledFriends.includes(friend) ? 'clear' : 'owes'
-                    : 'clear'
+                    : friend === props.owner.email
+                      ? props.iAmSettled ? 'clear' : 'owe'
+                      : 'clear' // TODO: this is real mess now
                 }
               />
             ))}
@@ -90,13 +93,30 @@ const GroupDetails = props => (
           </div>
         )}
 
-      {!props.isOwner && <div>TODO: not an owner</div>}
+      {!props.isOwner &&
+        props.iAmSettled && (
+          <div className="group-details__actions">
+            <a className="submit button-font yellow-button" onClick={props.onLeave}>
+              Leave
+            </a>
+          </div>
+        )
+      }
+
+      {!props.isOwner &&
+      !props.iAmSettled && (
+        <div className="group-details__actions">
+          You can't leave the group before the debt is settled
+        </div>
+      )
+      }
     </div>
   </div>
 );
 
 GroupDetails.propTypes = {
   addFriend: P.func.isRequired,
+  getBalance: P.func.isRequired,
   owner: P.shape({
     email: P.string,
     username: P.string,
@@ -105,17 +125,22 @@ GroupDetails.propTypes = {
   isOwner: P.bool,
   onCancel: P.func.isRequired,
   onFriendSettle: P.func.isRequired,
+  onFriendUnsettle: P.func.isRequired,
+  onLeave: P.func.isRequired,
   onSettle: P.func.isRequired,
   onSubmit: P.func.isRequired,
   removeFriend: P.func.isRequired,
   values: P.object.isRequired,
+
+  // if I am a guest in the group and I am settled
+  iAmSettled: P.bool,
 };
 
 GroupDetails.defaultProps = {
   owner: {
     email: '',
-    username: ''
-  }
+    username: '',
+  },
 };
 
 export default GroupDetails;

@@ -25,7 +25,7 @@ const GroupBox = props => {
   return (
     <Link to={`/group/${props.id}`} className="one-group white-box flex-property flex-center">
       <div className={`group-status group-color-${status}`}>
-        <p className="group-members flex-property flex-center">{props.date && props.date.getDate()}</p>
+        <p className="group-members flex-property flex-center">{balance}$</p>
       </div>
       <div className="group-info flex-property div-wrap">
         <span>{dateFormat(props.date, 'dmmm')}</span>

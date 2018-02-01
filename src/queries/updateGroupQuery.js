@@ -1,24 +1,27 @@
+import P from 'prop-types';
 import { withFirebase } from 'react-redux-firebase';
 import { compose, withProps } from 'recompose';
-import withUid from '../utils/withUid';
 
 export default compose(
   withFirebase,
 
-  withUid,
-
   withProps(props => ({
-    createGroup: group => {
-      if (!props.uid) {
-        throw new Error('Missing user id');
+    updateGroup: (id, group) => {
+
+      if (!id) {
+        return Promise.reject('missing group id');
       }
 
-      return props.firebase.push('groups', {
+
+      return props.firebase.update(`groups/${id}`, {
         ...group,
         date: group.date ? group.date.valueOf() : Date.now(),
         cost: parseFloat(group.cost),
-        owner: props.uid
       });
     }
   }))
 );
+
+export const updateGroupQueryProps = {
+  updateGroup: P.func.isRequired,
+};
