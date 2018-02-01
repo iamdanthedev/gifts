@@ -15,7 +15,7 @@ const FriendBox = ({
 }) => (
   <div className="one-friend flex-property">
     <div className={`friend-status color-${status} flex-property flex-center`}>
-      {status !== 'clear' && balance && <div>${balance.toFixed(2)}</div>}
+      {status !== 'clear' && balance && <div>{balance.toFixed(2)}$</div>}
     </div>
 
     <div className="friend-info flex-property div-wrap">
