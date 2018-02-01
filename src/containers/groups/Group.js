@@ -4,11 +4,12 @@ import { compose, withProps } from 'recompose';
 import { withRouter } from 'react-router';
 import { Formik } from 'formik';
 import { push } from 'react-router-redux';
-import { addFriend, getGroupBalance, removeFriend, validate } from './formUtils';
+import { addFriend, getGroupBalance, removeFriend, settleFriend, validate } from './formUtils';
 import GroupDetails from '../../components/groups/groupDetails/GroupDetails';
 import groupQuery, { groupQueryWrappedTypes } from '../../queries/groupQuery';
 import settleGroupQuery, { settleGroupQueryProps } from '../../queries/settleGroupQuery';
 import withUid, { withUidProps } from '../../utils/withUid';
+import userQuery from '../../queries/userQuery';
 
 const Group = props => {
 
@@ -27,8 +28,11 @@ const Group = props => {
   const group = {
     ...props.group,
     balance,
-    date
+    date,
+    settledFriends: props.group.settledFriends || []
   };
+
+  console.log('GROUP OWNER', props.ownerInfo);
 
   return  (
     <Formik
@@ -41,9 +45,11 @@ const Group = props => {
           addFriend={email => addFriend(email, form)}
           isOwner={group.owner === props.uid}
           onCancel={() => dispatch(push('/groups'))}
+          onFriendSettle={email => settleFriend(email, form)}
           onSettle={() => { props.settleGroup(props.id) }}
           onSubmit={() => form.submitForm()}
-          owner={group.owner}
+          owner={props.ownerInfo || {}}
+          ownerUid={group.owner}
           removeFriend={email => removeFriend(email, form)}
           values={form.values}
         />
@@ -70,6 +76,8 @@ export default compose(
   })),
 
   groupQuery,
+
+  userQuery({ userIdPropName: 'group.owner', outPropName: 'ownerInfo' }),
 
   settleGroupQuery,
 

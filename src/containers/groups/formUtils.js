@@ -1,3 +1,5 @@
+import uniq from 'lodash.uniq';
+
 export const initialValues = {
   name: '',
   desc: '',
@@ -48,6 +50,12 @@ export const addFriend = (email, form) => {
 
 export const removeFriend = (email, form) =>
   form.setFieldValue('friends', form.values.friends.filter(id => id !== email));
+
+export const settleFriend = (email, form) => {
+  const allSettled = form.values.settledFriends || [];
+  const settled = uniq([ ...allSettled, email ]);
+  form.setFieldValue('settledFriends', settled);
+};
 
 /**
  * Calculates users balance in a given group

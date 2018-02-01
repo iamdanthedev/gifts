@@ -2,14 +2,13 @@ import React from 'react';
 import P from 'prop-types';
 import dateFormat from 'dateformat';
 import InviteFriends from '../../layout/inviteFriends';
-import FriendBox from '../../friends/friendsBox';
+import FriendBox from '../../../containers/FriendBox';
 import SimpleBalance from '../../groupBalance/SimpleBalance';
 
 import './style.css';
 
 const GroupDetails = props => (
   <div className="group-details-wrap">
-
     {props.isOwner && (
       <InviteFriends
         onSubmit={email => props.addFriend(email)}
@@ -23,7 +22,6 @@ const GroupDetails = props => (
       <SimpleBalance balance={props.values.balance} />
 
       <div className="group-detail-info">
-
         <div className="desc flex-property column-orient">
           <span className="title-info title-s">Description</span>
           {props.values.desc}
@@ -41,7 +39,7 @@ const GroupDetails = props => (
 
         <div className="date flex-property column-orient">
           <span className="title-info title-s">Group Owner</span>
-          {props.owner}
+          {props.owner.username} ({props.owner.email})
         </div>
 
         <div className="friends">
@@ -49,43 +47,75 @@ const GroupDetails = props => (
           {props.values.friends &&
             props.values.friends.map(friend => (
               <FriendBox
+                isSettled={props.values.settledFriends.includes(friend)}
+                onSettle={() => props.onFriendSettle(friend)}
                 key={friend}
-                name={'TODO: ADD NAME'}
                 email={friend}
-                onRemove={(props.isOwner && !props.values.settled) ? () => props.removeFriend(friend) : null}
+                onRemove={
+                  props.isOwner && !props.values.settled
+                    ? () => props.removeFriend(friend)
+                    : null
+                }
+                status={
+                  props.isOwner
+                    ? props.values.settledFriends.includes(friend) ? 'clear' : 'owes'
+                    : 'clear'
+                }
               />
             ))}
         </div>
       </div>
 
-      {!props.values.settled && (
-        <div className="group-details__actions">
-          <a className="submit button-font" onClick={props.onSubmit}>Save changes</a>
-          <a className="submit button-font yellow-button" onClick={props.onCancel}>Cancel</a>
-          <a className="submit button-font green-button" onClick={props.onSettle}>Settle up!</a>
-        </div>
-      )}
+      {props.isOwner &&
+        !props.values.settled && (
+          <div className="group-details__actions">
+            <a className="submit button-font" onClick={props.onSubmit}>
+              Save changes
+            </a>
+            <a className="submit button-font yellow-button" onClick={props.onCancel}>
+              Cancel
+            </a>
+            <a className="submit button-font green-button" onClick={props.onSettle}>
+              Settle up!
+            </a>
+          </div>
+        )}
 
-      {props.values.settled && (
-        <div className="group-details__actions">
-          <a className="submit button-font yellow-button" onClick={props.onCancel}>Close</a>
-        </div>
-      )}
+      {props.isOwner &&
+        props.values.settled && (
+          <div className="group-details__actions">
+            <a className="submit button-font yellow-button" onClick={props.onCancel}>
+              Close
+            </a>
+          </div>
+        )}
 
-
+      {!props.isOwner && <div>TODO: not an owner</div>}
     </div>
   </div>
 );
 
 GroupDetails.propTypes = {
   addFriend: P.func.isRequired,
-  owner: P.string,
+  owner: P.shape({
+    email: P.string,
+    username: P.string,
+  }),
+  ownerUid: P.string,
   isOwner: P.bool,
   onCancel: P.func.isRequired,
+  onFriendSettle: P.func.isRequired,
   onSettle: P.func.isRequired,
   onSubmit: P.func.isRequired,
   removeFriend: P.func.isRequired,
   values: P.object.isRequired,
+};
+
+GroupDetails.defaultProps = {
+  owner: {
+    email: '',
+    username: ''
+  }
 };
 
 export default GroupDetails;

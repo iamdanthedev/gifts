@@ -17,8 +17,16 @@
  height: 60px;
  flex: 1;
 }
+
+.friend-spacer {
+  flex: 1 0 0;
+}
+
+.friend-settle {
+  flex: 0 0 6rem;
+}
+
 .friend-info{
-  flex: 6;
   padding: 5px 10px;
 }
 .friend-info a, .friend-info p{
