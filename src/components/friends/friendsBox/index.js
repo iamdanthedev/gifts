@@ -60,6 +60,7 @@ const FriendBox = ({
 );
 
 FriendBox.propTypes = {
+  balance: P.number,
   isSettled: P.bool,
   onSettle: P.func,
   onUnsettle: P.func,
@@ -67,7 +68,7 @@ FriendBox.propTypes = {
   name: P.string.isRequired,
   onAdd: P.func,
   onRemove: P.func,
-  status: P.string, // TODO: status is not being used in any way at the moment
+  status: P.string,
 };
 
 export default FriendBox;

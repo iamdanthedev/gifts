@@ -9,7 +9,6 @@ import Layout from '../components/profile/ProfileLayout';
 import Groups from './groups/Groups';
 
 import InviteFriends from '../components/layout/inviteFriends'
-import Friends from '../components/friends/containerFriends'
 
 
 const Profile = props => {
@@ -19,8 +18,7 @@ const Profile = props => {
   return (
     <Layout>
       <InviteFriends onSubmit={email => dispatch(asyncInviteFriend(email))} />
-      <Groups showTotalBalance />
-      <Friends />
+      <Groups showTotalBalance showFriends />
     </Layout>
   );
 

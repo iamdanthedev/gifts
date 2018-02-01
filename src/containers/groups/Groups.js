@@ -9,9 +9,16 @@ import myGroupsQuery, { myGroupsQueryProps } from '../../queries/myGroupsQuery';
 import withUid, { withUidProps } from '../../utils/withUid';
 import TotalBalance from '../../components/groupBalance/TotalBalance';
 import Message from '../../components/Message';
+import Friends from '../../components/friends/containerFriends'
+import userQuery from '../../queries/userQuery';
+import allUsersQuery, { allUsersQueryProps } from '../../queries/allUsersQuery';
 
 const Groups = props => {
   console.log('Groups Container', props);
+
+  /**
+   * Prepare groups list
+   */
 
   const groups = props.groups
 
@@ -53,6 +60,61 @@ const Groups = props => {
   const totalGroups = groups.length;
 
 
+  /**
+   * Get friends debts list
+   */
+
+  const friends = {};
+
+  groups.forEach(g => {
+
+    const share = g.cost / (g.friends.length + 1);
+
+    // if we are the owner of the group
+    if (g.owner === props.uid) {
+      g.friends.forEach(friend => {
+
+        friends[friend] = friends[friend] || 0;
+
+        // if he ows us then increase their debt
+        if (!g.settledFriends || !g.settledFriends.includes(friend)) {
+          friends[friend] += share;
+        }
+
+      })
+    }
+
+    // if we are guests in the group
+    else {
+      // get group owner email
+      if (props.allUsers && props.allUsers[g.owner]) {
+
+        const ownerEmail = props.allUsers[g.owner].email;
+
+        if (!ownerEmail) {
+          return;
+        }
+
+        friends[ownerEmail] = friends[ownerEmail] || 0;
+
+        // if we are not settled - decrease group owners debt
+        if (!g.settledFriends || !g.settledFriends.includes(props.myEmail)) {
+          friends[ownerEmail] -= share;
+        }
+
+      }
+    }
+
+  });
+
+  const friendList = Object.keys(friends)
+    .map(email => ({
+      email,
+      balance: friends[email],
+      status: friends[email] > 0 ? 'owes' : friends[email] < 0 ? 'owe' : 'clear'
+    }));
+
+
   return (
     <React.Fragment>
 
@@ -68,11 +130,15 @@ const Groups = props => {
           debitGroups={debitGroups}
           total={total}
           totalGroups={totalGroups}
-
         />
       )}
 
       <GroupList items={groups} />
+
+
+      {props.showFriends && (
+        <Friends friends={friendList} />
+      )}
     </React.Fragment>
   );
 };
@@ -80,14 +146,18 @@ const Groups = props => {
 Groups.propTypes = {
   ...myGroupsQueryProps,
   ...withUidProps,
+  ...allUsersQueryProps,
   showTotalBalance: P.bool,
-  myEmail: P.string
+  showFriends: P.bool,
+  myEmail: P.string,
 };
 
 export default compose(
   withRouter,
   withUid,
   myGroupsQuery,
+  allUsersQuery,
+  userQuery({ userIdPropName: 'propsUid', outPropName: 'me' }),
   connect(s => ({
     myEmail: s.firebase.auth.email
   }))
