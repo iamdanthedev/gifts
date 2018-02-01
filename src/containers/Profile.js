@@ -1,19 +1,24 @@
 import React from 'react';
+import P from 'prop-types';
+import { connect } from 'react-redux';
+import { compose } from 'recompose';
+
+import { asyncInviteFriend } from '../actions/friends';
 
 import Layout from '../components/profile/ProfileLayout';
 import Groups from './groups/Groups';
 
 import InviteFriends from '../components/layout/inviteFriends'
-import BalanceBox from '../components/balance'
 import Friends from '../components/friends/containerFriends'
 
 
 const Profile = props => {
 
+  const { dispatch } = props;
+
   return (
     <Layout>
-      <InviteFriends />
-      {/*<BalanceBox />*/}
+      <InviteFriends onSubmit={email => dispatch(asyncInviteFriend(email))} />
       <Groups showTotalBalance />
       <Friends />
     </Layout>
@@ -21,4 +26,10 @@ const Profile = props => {
 
 };
 
-export default Profile;
+Profile.propTypes = {
+  inviteFriend: P.func.isRequired,
+};
+
+export default compose(
+  connect()
+)(Profile);

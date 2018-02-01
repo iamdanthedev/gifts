@@ -6,6 +6,7 @@
     "dateformat": "^3.0.2",
     "formik": "^0.10.5",
     "history": "^4.7.2",
+    "lodash.uniq": "^4.5.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-date-picker": "^6.7.0",
