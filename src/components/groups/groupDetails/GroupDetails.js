@@ -47,6 +47,7 @@ const GroupDetails = props => (
           {props.values.friends &&
             props.values.friends.map(friend => (
               <FriendBox
+                balance={props.values.share}
                 isSettled={props.values.settledFriends.includes(friend)}
                 onSettle={props.isOwner ? () => props.onFriendSettle(friend) : null}
                 onUnsettle={props.isOwner ? () => props.onFriendUnsettle(friend) : null}

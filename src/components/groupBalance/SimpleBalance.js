@@ -12,14 +12,14 @@ const SimpleBalance = ({ balance }) => (
       {balance < 0 && (
         <React.Fragment>
           <h5>You owe</h5>
-          <h6>${Math.abs(balance)}</h6>
+          <h6>${Math.abs(balance).toFixed(2)}</h6>
         </React.Fragment>
       )}
 
       {balance > 0 && (
         <React.Fragment>
           <h5>You are owed</h5>
-          <h6>${balance}</h6>
+          <h6>${balance.toFixed(2)}</h6>
         </React.Fragment>
       )}
 

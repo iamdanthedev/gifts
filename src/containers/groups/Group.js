@@ -39,6 +39,7 @@ const Group = props => {
     ...props.group,
     // balance,
     date,
+    share: props.group.cost / (props.group.friends.length + 1),
     settledFriends: props.group.settledFriends || [],
   };
 

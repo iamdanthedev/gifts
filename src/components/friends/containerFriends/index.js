@@ -54,7 +54,7 @@ class Friends extends Component{
   }
   render(){
     return(
-        <div className="max-w friends white-box flex-property div-wrap">
+        <div style={{ marginTop: '20px' }} className="max-w friends white-box flex-property div-wrap">
           {
             this.state.temp.map((friend) =>
               <FriendBox
