@@ -9,12 +9,13 @@ import './style.css';
 
 const GroupDetails = props => (
   <div className="group-details-wrap">
-    {props.isOwner && (
-      <InviteFriends
-        onSubmit={email => props.addFriend(email)}
-        disabled={props.values.settled}
-      />
-    )}
+
+    {/*{props.isOwner && (*/}
+      {/*<InviteFriends*/}
+        {/*onSubmit={email => props.addFriend(email)}*/}
+        {/*disabled={props.values.settled}*/}
+      {/*/>*/}
+    {/*)}*/}
 
     <div className="details-content white-box">
       <h4>{props.values.name}</h4>
@@ -54,9 +55,10 @@ const GroupDetails = props => (
                 key={friend}
                 email={friend}
                 onRemove={
-                  props.isOwner && !props.values.settled
-                    ? () => props.removeFriend(friend)
-                    : null
+                  null
+                  // props.isOwner && !props.values.settled
+                  //   ? () => props.removeFriend(friend)
+                  //   : null
                 }
                 status={
                   props.isOwner
