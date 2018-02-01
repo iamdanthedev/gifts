@@ -1,17 +1,21 @@
-import React, { Component } from 'react';
+import React  from 'react';
 import P from 'prop-types';
 import DatePicker from 'react-date-picker';
+import { compose, withState } from 'recompose';
 import { Formik } from 'formik';
+import Switch from 'react-switch';
 
+import FriendBox from '../../../containers/FriendBox';
 import InviteFriends from '../../layout/inviteFriends';
 import CustomInput from '../../customInput';
-import FriendBox from '../../friends/friendsBox';
 import SelectedFriend from '../../friends/selectedFriendBox';
+import ButtonSwitch  from '../../ButtonSwitch';
+import Groups from '../../../containers/groups/Groups';
 
 import './style.css';
 
 const CreateGroup = props => {
-  const { friends, ...formProps } = props;
+  const { ...formProps } = props;
 
   const addFriend = (email, form) => {
     if (!email) {
@@ -28,8 +32,6 @@ const CreateGroup = props => {
   const removeFriend = (email, form) =>
     form.setFieldValue('friends', form.values.friends.filter(id => id !== email));
 
-  const getFriend = email => friends.find(f => f.email === email) || { email };
-
   return (
     <Formik
       {...formProps}
@@ -38,9 +40,9 @@ const CreateGroup = props => {
           console.log('CreateGroup Form Values', form.values, form);
         }
 
-        const selectedFriends = props.friends.filter(f =>
-          form.values.friends.includes(f.id),
-        );
+        // const selectedFriends = props.friends.filter(f =>
+        //   form.values.friends.includes(f.id),
+        // );
 
         return (
           <div className="max-w groups flex-property div-wrap">
@@ -104,14 +106,15 @@ const CreateGroup = props => {
 
                 <div className="selected-members">
                   <p>Selected friends:</p>
-                  {form.values.friends.map(getFriend).map(friend => (
-                    <SelectedFriend
-                      status="own"
-                      key={friend.email}
-                      email={friend.email}
-                      name={friend.name}
+                  {form.values.friends.map(friend => (
+
+                    <FriendBox
+                      key={friend}
+                      isSelector
+                      email={friend}
                       onRemove={() => removeFriend(friend.email, form)}
                     />
+
                   ))}
                 </div>
 
@@ -122,15 +125,25 @@ const CreateGroup = props => {
                 >
                   <p>Your suggested friends:</p>
 
-                  {friends.map(friend => (
-                    <FriendBox
-                      status="own"
-                      key={friend.email}
-                      email={friend.email}
-                      name={friend.name}
-                      onAdd={() => addFriend(friend.email, form)}
+                  <div className="group-users-filter">
+                    <span>Show All Users:</span>
+
+                    <Switch
+                      boxShadow=""
+                      checkedIcon={false}
+                      uncheckedIcon={false}
+                      checked={props.showAllUsers}
+                      onChange={value => props.setShowAllUsers(value)}
                     />
-                  ))}
+                  </div>
+
+                  <Groups
+                    hideGroups
+                    showFriends
+                    showAllUsers={props.showAllUsers}
+                    onUserAdd={email => addFriend(email, form)}
+                  />
+
                 </div>
 
                 <input type="submit" className="submit button-font" />
@@ -145,7 +158,9 @@ const CreateGroup = props => {
 
 CreateGroup.propTypes = {
   onSubmit: P.func.isRequired,
-  friends: P.array.isRequired,
+  setShowAllUsers: P.func.isRequired,
+  showAllUsers: P.bool
 };
 
-export default CreateGroup;
+export default compose(
+)(CreateGroup);

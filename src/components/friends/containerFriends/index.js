@@ -2,7 +2,9 @@ import React from 'react';
 import P from 'prop-types';
 import FriendBox from '../../../containers/FriendBox';
 
-const Friends = ({ friends }) => {
+const noop = () => {};
+
+const Friends = ({ onAdd, friends }) => {
   return (
     <div
       style={{ marginTop: '20px' }}
@@ -12,6 +14,7 @@ const Friends = ({ friends }) => {
         <FriendBox
           key={friend.email}
           {...friend}
+          onAdd={() => onAdd ? onAdd(friend.email) : noop()}
         />
       ))}
     </div>
@@ -19,7 +22,8 @@ const Friends = ({ friends }) => {
 };
 
 Friends.propTypes = {
-  friends: P.arrayOf(FriendBox.propTypes)
+  onAdd: P.func,
+  friends: P.array,
 };
 
 export default Friends;

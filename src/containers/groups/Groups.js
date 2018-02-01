@@ -68,8 +68,15 @@ const Groups = props => {
 
   const friends = {};
 
-  if (props.me && props.me.friends) {
+  if (!props.showAllUsers && props.me && props.me.friends) {
     props.me.friends.forEach(f => friends[f] = 0);
+  }
+  else if (props.showAllUsers && props.allUsers) {
+    Object.keys(props.allUsers).forEach(id => {
+      if (props.allUsers[id].email && props.allUsers[id].email !== props.myEmail) {
+        friends[props.allUsers[id].email] = 0;
+      }
+    });
   }
 
   groups.forEach(g => {
@@ -145,7 +152,7 @@ const Groups = props => {
 
 
       {props.showFriends && (
-        <Friends friends={friendList} />
+        <Friends friends={friendList} onAdd={props.onUserAdd}  />
       )}
     </React.Fragment>
   );
@@ -158,6 +165,8 @@ Groups.propTypes = {
   hideGroups: P.bool,
   showTotalBalance: P.bool,
   showFriends: P.bool,
+  showAllUsers: P.bool, // if showFriends=true this will display ALL the users instead
+  onUserAdd: P.func,
   myEmail: P.string,
   me: P.object, // my profile
 };

@@ -92,5 +92,14 @@ button.react-calendar__tile--active, button.react-calendar__tile--active:not([di
   margin-bottom: 10px;
 }
 .form-input-elements .group-name{
-  margin: 0px; 
+  margin: 0px;
+}
+
+.group-users-filter {
+  display: flex;
+  align-items: center;
+}
+
+.group-users-filter > *:nth-child(2) {
+  margin-left: 10px;
 }
