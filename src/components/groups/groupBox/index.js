@@ -16,16 +16,16 @@ const GroupBox = props => {
       : 'clear';
 
   const str = balance < 0
-    ? `You owe $${Math.abs(balance)}`
+    ? `You owe $${Math.abs(balance).toFixed(2)}`
     : balance > 0
-      ? `You are owed $${balance}`
+      ? `You are owed $${balance.toFixed(2)}`
       : 'Balance cleared';
 
 
   return (
     <Link to={`/group/${props.id}`} className="one-group white-box flex-property flex-center">
       <div className={`group-status group-color-${status}`}>
-        <p className="group-members flex-property flex-center">{balance}$</p>
+        <p className="group-members flex-property flex-center">{balance.toFixed(2)}$</p>
       </div>
       <div className="group-info flex-property div-wrap">
         <span>{dateFormat(props.date, 'dmmm')}</span>
