@@ -14,7 +14,7 @@ export const asyncRegister = (reg_email, reg_username, reg_pass) => async dispat
   try {
     await register(reg_email, reg_username, reg_pass);
     dispatch(registerUser());
-    dispatch(push('/profile'));
+    dispatch(push('/home'));
   } catch (e) {
     // TODO: log event
     dispatch(registerFailure(e.code, e.message));

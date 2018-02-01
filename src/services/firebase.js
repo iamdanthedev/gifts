@@ -9,14 +9,16 @@ const firebaseConfig = {
   messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID,
 };
 
-firebase.initializeApp(firebaseConfig);
-// firebase.database.enableLogging(false);
-
-const db = firebase.database();
-
-const firebaseService = {
-  users: db.ref('users/'),
-  groups: db.ref('groups/'),
+export const initFirebase = () => {
+  firebase.initializeApp(firebaseConfig);
 };
 
-export default firebaseService;
+
+// const db = firebase.database();
+//
+// const firebaseService = {
+//   users: db.ref('users/'),
+//   groups: db.ref('groups/'),
+// };
+//
+// export default firebaseService;
