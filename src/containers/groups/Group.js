@@ -68,7 +68,7 @@ const Group = props => {
       render={form => (
         <GroupDetails
           addFriend={email => addFriend(email, form)}
-          getBalance={() => getGroupBalance(form.values, props.uid)}
+          getBalance={() => getGroupBalance(form.values, props.uid, props.myEmail)}
           isOwner={group.owner === props.uid}
           onCancel={() => dispatch(push('/groups'))}
           onFriendSettle={email => settleFriend(email, form)}
