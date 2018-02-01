@@ -21,7 +21,7 @@ const leftNavLinks = [
   {
     name: 'Friends',
     id: '3',
-    url: '/friendsList',
+    url: '/friends',
     protected: true,
   },
   {

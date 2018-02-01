@@ -12,11 +12,11 @@ import Group from '../containers/groups/Group';
 import Groups from '../containers/groups/Groups';
 import Profile from '../containers/Profile';
 
-import ContainerFriends from '../components/friends/containerFriends';
-
 /*
     All routes go here.
  */
+
+const Friends = () => <Groups hideGroups showFriends/>
 
 export default ({ isSignedIn, logout }) => (
   <div className="page-content">
@@ -33,7 +33,7 @@ export default ({ isSignedIn, logout }) => (
         <Route path="/register" component={Register} />
 
         <Route path="/home" component={userIsAuthenticated(Profile)} />
-        <Route path="/friendsList" component={userIsAuthenticated(ContainerFriends)} />
+        <Route path="/friends" component={userIsAuthenticated(Friends)} />
         <Route path="/groups" component={userIsAuthenticated(Groups)} />
         <Route path="/group/new" component={userIsAuthenticated(CreateGroup)} />
         <Route path="/group/:id" component={userIsAuthenticated(Group)} />

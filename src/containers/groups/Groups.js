@@ -137,7 +137,9 @@ const Groups = props => {
         />
       )}
 
-      <GroupList items={groups} />
+      {!props.hideGroups && (
+        <GroupList items={groups} />
+      )}
 
 
       {props.showFriends && (
@@ -151,6 +153,7 @@ Groups.propTypes = {
   ...myGroupsQueryProps,
   ...withUidProps,
   ...allUsersQueryProps,
+  hideGroups: P.bool,
   showTotalBalance: P.bool,
   showFriends: P.bool,
   myEmail: P.string,
